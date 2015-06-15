@@ -60,7 +60,7 @@ var Qibla = {
 		{name: 'homeLat', val: 42.074481},
 		{name: 'homeLng', val: -87.684267},
 		{name: 'mapZoom', val: 14},
-		{name: 'mapType', val: 'h'},  // m: map, k: satellite, h: hybrid, p: terrain, e:earth
+		{name: 'mapType', val: 'm'},  // m: map, k: satellite, h: hybrid, p: terrain, e:earth
 		{name: 'distanceUnit', val: 0}  // 0: kilometer, 1: mile
 	],
 
