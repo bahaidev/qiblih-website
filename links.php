@@ -1,8 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
 <title>Qiblih.com - Useful websites</title>
-<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
 <body>
@@ -11,7 +11,7 @@
   <div id="wrapper">
     <div id="content">
       <p><strong>Useful websites</strong></p>
-      <p><a href="http://www.bahai.org/">bahai.org</a> The Web Site of the Bah�� International Community.<br />
+      <p><a href="http://www.bahai.org/">bahai.org</a> The Web Site of the Bahá’í International Community.<br />
       <a href="http://bahairesearch.com/">bahairesearch.com</a> Search Engine of sacred writings and commentaries. Includes writings of most of the major world religions.<br />
       <a href="http://sunposition.info/">SunPosition.info</a> Calculate true north based on position of the sun.</p>
 

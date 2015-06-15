@@ -1,8 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+ï»¿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
 <title>Qiblih.com - Counting</title>
-<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="styles.css" />
 <script type="text/javascript" src="/jquery.js"></script>
 <script type="text/javascript">
@@ -89,7 +89,7 @@
   <div id="wrapper">
     <div id="content">
       <p><strong>Finger Counting to 95</strong></p>
-      <p>If you happen to be without prayer beads you can easily keep track of your recitation of 95 Alláh'u'Abhás using your fingers. Simply use one hand's finger tips and joints to count to 19 and use your other <br /> hand's five fingers to keep track of every 19 repetitions. 5 times 19 equals 95.</p>
+      <p>If you happen to be without prayer beads you can easily keep track of your recitation of 95 AllÃ¡h'u'AbhÃ¡s using your fingers. Simply use one hand's finger tips and joints to count to 19 and use your other <br /> hand's five fingers to keep track of every 19 repetitions. 5 times 19 equals 95.</p>
       <p>Move your mouse over the image below to see the 19 points.</p>
       <div>
         <img class="fade" src="images/hand_simple.jpg" style="background: url(images/hand_numbers.jpg);" alt="Hand" />

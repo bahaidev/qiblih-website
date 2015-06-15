@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $latitude = $_GET["lat"];
 $longitude = $_GET["lng"];
 

@@ -1,8 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+ï»¿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
 <title>Qiblih.com - Information</title>
-<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
 <body>
@@ -16,7 +16,7 @@
       <a href="http://books.bahai.us/">Bahai Publishing</a> for the 9 pointed star image.<br />
       <a href="http://eqibla.com/">eQibla.com</a> for the initial google maps javascript code.<br />
       <a href="http://www.magnetic-declination.com/">magnetic-declination.com</a> for providing the magnetic declination SOAP database service and providing information on building a PHP5 SOAP client.<br /></p>
-      <p>Photograph of the Shrine of Bahá'u'lláh ©2003 <a href="http://www.glennscottegli.com/">Glenn Scott Egli</a></p>
+      <p>Photograph of the Shrine of BahÃ¡'u'llÃ¡h Â©2003 <a href="http://www.glennscottegli.com/">Glenn Scott Egli</a></p>
     </div> 
   </div>
   <div id="navigation">

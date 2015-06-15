@@ -1,8 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+ï»¿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
 <title>Qiblih.com - Find the direction to Bahji</title>
-<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
 <body>
@@ -11,7 +11,7 @@
   <div id="wrapper">
     <div id="content">
       <p><strong>Simply enter your address and use the red line to locate the direction to Bahji.</strong></p>
-      <p>In the Bahá'í Faith the Qiblih is the location that Bahá'ís should face when saying their daily obligatory prayers, and is fixed at the Shrine of Bahá'u'lláh in Bahjí, near Akká, in present day Israel.</p>
+      <p>In the BahÃ¡'Ã­ Faith the Qiblih is the location that BahÃ¡'Ã­s should face when saying their daily obligatory prayers, and is fixed at the Shrine of BahÃ¡'u'llÃ¡h in BahjÃ­, near AkkÃ¡, in present day Israel.</p>
       
       <div id="MapForm">
   		  <form onsubmit="Qibla.locateAddress(); return false;" action="/">
