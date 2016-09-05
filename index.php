@@ -72,8 +72,8 @@ pageTracker._trackPageview();
 } catch(err) {}</script>
 </body>
 </html>
-<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAvGCEiN0Sw3_fm3et3W8TaBQgT9IyraRswGlJmBAtF_8lKRqEkRQ1Y3xNwUY9ps_2GVqEDjRRBrdygg" type="text/javascript"></script>
-<script src="http://qiblih.com/qiblih.js" type="text/javascript"></script>
+<script src="https://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAvGCEiN0Sw3_fm3et3W8TaBQgT9IyraRswGlJmBAtF_8lKRqEkRQ1Y3xNwUY9ps_2GVqEDjRRBrdygg" type="text/javascript"></script>
+<script src="https://qiblih.com/qiblih.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 

@@ -39,9 +39,9 @@ var Qibla = {
 	//----------------------------------------
 	
 	// icons used in the map
-	kabaIcon:  {image: 'http://qiblih.com/images/ftr-star.png',  width: 17, height: 17},
-	homeRIcon: {image: 'http://qiblih.com/images/rmarker.png', width: 15, height: 20},
-	homeLIcon: {image: 'http://qiblih.com/images/lmarker.png', width: 15, height: 20},
+	kabaIcon:  {image: 'https://qiblih.com/images/ftr-star.png',  width: 17, height: 17},
+	homeRIcon: {image: 'https://qiblih.com/images/rmarker.png', width: 15, height: 20},
+	homeLIcon: {image: 'https://qiblih.com/images/lmarker.png', width: 15, height: 20},
 
 	// display options
 	updateMode: 0,          // 0: update on move, 1: update on click
