@@ -41,10 +41,10 @@ background:#FFFFFF;}
 .info-tab {
 	width: 60px;
 	height: 30px;
-	float: left; 
-	overflow: hidden; 
-	padding: 5px 0px 2px 7px; 
-	color: #555; 
+	float: left;
+	overflow: hidden;
+	padding: 5px 0px 2px 7px;
+	color: #555;
 	border-left: 1px solid #969D8B;
 }
 .QValue {
