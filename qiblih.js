@@ -1,5 +1,5 @@
 //------------------------ Copyright Block ------------------------
-/* 
+/*
 
 qiblih.js: Find Baha'i Qiblih Direction (ver 0.3)
 
@@ -25,7 +25,7 @@ var Qibla = {
 	// constants: translations go here
 	addressBarMsg: 'Enter your address',
 
-	consts: { 
+	consts: {
 		north: 'North',
 		south: 'South',
 		east:  'East',
@@ -37,7 +37,7 @@ var Qibla = {
 	},
 
 	//----------------------------------------
-	
+
 	// icons used in the map
 	kabaIcon:  {image: 'https://qiblih.com/images/ftr-star.png',  width: 17, height: 17},
 	homeRIcon: {image: 'https://qiblih.com/images/rmarker.png', width: 15, height: 20},
@@ -50,12 +50,12 @@ var Qibla = {
 	toggleUnits: true,      // enable toggling distance unit
 	lineColor: '#FF0000',   // qibla direction line color
 	segmentSize: 200000,    // line segments size in meters
-	
+
 	// Qiblih coordinates
 	kabaLat: 32.943529,
 	kabaLng: 35.091834,
 
-	// default values 
+	// default values
 	cookieData: [
 		{name: 'homeLat', val: 42.074481},
 		{name: 'homeLng', val: -87.684267},
@@ -68,7 +68,7 @@ var Qibla = {
 	expireDays: 180,       // number of days cookies are kept in the browser
 	cookiesPath: '/',      // the path to which cookies are sent
 
-	// constructor 
+	// constructor
 	init: function() {
 		this.readCookies();
 	},
@@ -77,7 +77,7 @@ var Qibla = {
 	unload: function() {
 		if (this.map) {
 			this.saveCookies();
-			GUnload(); 
+			GUnload();
 		}
 	}
 }
@@ -91,7 +91,7 @@ var Qibla = {
 Qibla.startMap = function(params) {
 	if (!window.GBrowserIsCompatible || !GBrowserIsCompatible())
 		return;
-	
+
 	params = params || {};
 	startLat = 1* (params.lat || this.homeLat);
 	startLng = 1* (params.lng || this.homeLng);
@@ -104,12 +104,12 @@ Qibla.startMap = function(params) {
 
 	this.initMap();
 	this.setMapType(startType);
-	
+
 	if (params.addr)
 		this.locateAddress(params.addr, true);
 	else
 		this.map.setCenter(this.home, startZoom);
-	
+
 }
 
 // compute the direction between two points
@@ -124,14 +124,14 @@ Qibla.getDirection = function(point1, point2) {
 // reurn qibla direction for a given location
 Qibla.getQiblaDirection = function(location) {
 	var qiblaDir = this.getDirection(location, this.kaba);
-	if (qiblaDir < 0) 
+	if (qiblaDir < 0)
 		qiblaDir += 360;
 	return qiblaDir;
 }
 
-// toggle distance mode 
+// toggle distance mode
 Qibla.toggleDistanceUnit = function() {
-	this.distanceUnit = 1- this.distanceUnit;  
+	this.distanceUnit = 1- this.distanceUnit;
 }
 
 // called when container is resized
@@ -147,7 +147,7 @@ Qibla.checkResize = function() {
 //--------------------------- Initializer -----------------------------
 
 
-// initialize the map 
+// initialize the map
 Qibla.initMap = function() {
 	this.map = new GMap2($('QMap'));
 	this.geocoder = new GClientGeocoder();
@@ -160,14 +160,14 @@ Qibla.initMap = function() {
 	this.smallMapControl = new GSmallMapControl();
 	this.scaleControl = new GScaleControl();
 	this.addControls();
-	
+
 	this.kabaMarker = new GMarker(this.kaba, {icon: this.initIcon(this.kabaIcon), clickable: false});
 	this.homeRMarker = new GMarker(this.kaba, {icon: this.initIcon(this.homeRIcon), clickable: false});
 	this.homeLMarker = new GMarker(this.kaba, {icon: this.initIcon(this.homeLIcon), clickable: false});
 
-	if (this.updateMode == 0) 
+	if (this.updateMode == 0)
 		GEvent.addListener(this.map, 'move', function(){ Qibla.setHome() });
-	else 
+	else
 		GEvent.addListener(this.map, 'click', function(marker, point){ Qibla.setHome(point, marker) });
 	GEvent.addListener(this.map, 'maptypechanged', function(){ Qibla.redraw() });
 }
@@ -195,7 +195,7 @@ Qibla.initIcon = function(iconObj) {
 	return icon;
 }
 
-// initialize address bar 
+// initialize address bar
 Qibla.initAddressBar = function() {
 	this.addressObj = $('QAddress');
 	if (this.addressObj) {
@@ -205,12 +205,12 @@ Qibla.initAddressBar = function() {
 	}
 }
 
-// get current map type 
+// get current map type
 Qibla.getMapType = function() {
 	return this.map.getCurrentMapType().getUrlArg();
 }
 
-// set current map type 
+// set current map type
 Qibla.setMapType = function(type) {
 	var list = this.map.getMapTypes();
 	for (var i in list)
@@ -223,7 +223,7 @@ Qibla.readCookies = function() {
 	for (var i in this.cookieData) {
 		var w = Cookies.get(this.cookieData[i].name);
 		if (w == null) w = this.cookieData[i].val;
-		Qibla[this.cookieData[i].name] = w; 
+		Qibla[this.cookieData[i].name] = w;
 	}
 	this.distanceUnit *= 1;
 }
@@ -243,15 +243,15 @@ Qibla.saveCookies = function() {
 //------------------------- Drawing Functions -----------------------------
 
 
-// set home point 
+// set home point
 Qibla.setHome = function(point, marker) {
-	if (marker) 
+	if (marker)
 		point = marker.getPoint();
 	this.home = point || this.map.getCenter();
 	this.redraw();
 }
 
-// update map 
+// update map
 Qibla.redraw = function() {
 	var qiblaDir = this.getQiblaDirection(this.home);
 	this.homeMarker = qiblaDir < 180 ? this.homeRMarker : this.homeLMarker;
@@ -261,7 +261,7 @@ Qibla.redraw = function() {
 	this.map.addOverlay(this.homeMarker);
 	this.map.addOverlay(this.kabaMarker);
 
-	this.drawLines();	
+	this.drawLines();
 	this.writeData();
 	if (window.redraw)
 		redraw();
@@ -270,13 +270,13 @@ Qibla.redraw = function() {
 // draw direction lines
 Qibla.drawLines = function() {
 	var is3DMap = this.getMapType() == 'e';
-	
-	if (this.extension) 
+
+	if (this.extension)
 		this.extDraw();
-	
+
 	var qiblaSegments = is3DMap ? [this.home, this.kaba] : this.greatCircle(this.home, this.kaba);
 	this.map.addOverlay(new GPolyline(qiblaSegments, this.lineColor, 4, 0.8));
-	
+
 }
 
 
@@ -285,7 +285,7 @@ Qibla.drawLines = function() {
 var xmlHttp;
 
 Qibla.showDeclination = function()
-{ 
+{
 xmlHttp=GetXmlHttpObject();
 if (xmlHttp==null)
  {
@@ -325,7 +325,7 @@ Qibla.writeDeclination = function() {
   var directionmag = Qibla.formatDirection(qiblaDirmagReal);
 	Qibla.write('QDirectionmag', directionmag.degrees);
 	Qibla.write('QDirLabelmag', directionmag.label)
-	if (this.extension) 
+	if (this.extension)
 		this.extWrite();
   }
 }
@@ -370,19 +370,19 @@ Qibla.writeData = function() {
 
 	var qiblaDir = this.getQiblaDirection(this.home);
 	var direction = this.formatDirection(qiblaDir);
-	
+
 	//var directionmag = this.formatDirection(qiblaDirmag);
 	this.write('QDirection', direction.degrees);
 	this.write('QDirLabel', direction.label);
 
-	var distance = this.home.distanceFrom(this.kaba); 
+	var distance = this.home.distanceFrom(this.kaba);
 	this.write('QDistance', this.formatDistance(distance));
 
-	if (this.extension) 
+	if (this.extension)
 		this.extWrite();
 }
 
-// format direction 
+// format direction
 Qibla.formatDirection = function(dir) {
 	var sectAngle = [360, 180, 90, 45][this.directionMode];
 	var dirNames = [this.consts.north, this.consts.east, this.consts.south, this.consts.west];
@@ -399,7 +399,7 @@ Qibla.formatDirection = function(dir) {
 	var label = [dirBase];
 	if (this.directionFormat == 1)
 		label = [rotation, this.consts.from, dirBase];
-	else if (this.directionFormat == 2) { 
+	else if (this.directionFormat == 2) {
 		var t = (k + (i%2 == 0 ? 1 : 3))% 4;
 		var dirTarget = dirNames[t];
 		label = [this.consts.from, dirBase, this.consts.to, dirTarget];
@@ -407,7 +407,7 @@ Qibla.formatDirection = function(dir) {
 	return {degrees: dir.toFixed(2)+ '&deg;', label: '&nbsp;'+ label.join('&nbsp;')};
 }
 
-// format distance 
+// format distance
 Qibla.formatDistance = function(dist) {
 	var tags = ['km', 'mi'];
 	var label = tags[this.distanceUnit]
@@ -603,4 +603,3 @@ function $(element) {
 }
 
 Qibla.init();
-
