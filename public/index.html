@@ -11,6 +11,10 @@
   <div id="wrapper">
     <div id="content">
       <p><strong><font color="red">The Google Maps functionality of this site is currently impaired. We are looking for web developers that are interested in improving the website. Please join the development work at <a href="https://github.com/bahaidev/qiblih-website">github.com/bahaidev/qiblih-website</a></font></strong></p>
+      <div class="mobile-notice">
+        <p><strong>Using a mobile device with Android or iOS?</strong><br/>
+        You can now get the Qiblih compass as part of <a href="https://www.badi-calendar.com">badi-calendar.com</a>'s <a href="https://www.badi-calendar.com/app.php">Badí' Calendar & Qiblih App</a>.</p>
+      </div>
       <p><strong>Simply enter your address and use the red line to locate the direction to Bahji.</strong></p>
       <p>In the Bahá'í Faith the Qiblih is the location that Bahá'ís should face when saying their daily obligatory prayers, and is fixed at the Shrine of Bahá'u'lláh in Bahjí, near Akká, in present day Israel.</p>
 
@@ -72,10 +76,16 @@ var pageTracker = _gat._getTracker("UA-3958649-6");
 pageTracker._trackPageview();
 } catch(err) {}
 </script>
+
 <script src="mobile-detect.min.js"></script>
+<script src="jquery.js"></script>
 <script>
     var md = new MobileDetect(window.navigator.userAgent);
     console.log( md.os() );
+    if (md.os() != "iOS" && md.os() != "AndroidOS") {
+      $(".mobile-notice").hide();
+    }
+    
 </script>
 </body>
 </html>
