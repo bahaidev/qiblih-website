@@ -72,6 +72,11 @@ var pageTracker = _gat._getTracker("UA-3958649-6");
 pageTracker._trackPageview();
 } catch(err) {}
 </script>
+<script src="mobile-detect.min.js"></script>
+<script>
+    var md = new MobileDetect(window.navigator.userAgent);
+    console.log( md.os() );
+</script>
 </body>
 </html>
 <script src="https://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAvGCEiN0Sw3_fm3et3W8TaBQgT9IyraRswGlJmBAtF_8lKRqEkRQ1Y3xNwUY9ps_2GVqEDjRRBrdygg"></script>
