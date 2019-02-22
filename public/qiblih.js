@@ -77,7 +77,7 @@ var Qibla = {
 	unload: function() {
 		if (this.map) {
 			this.saveCookies();
-			GUnload();
+			//GUnload();
 		}
 	}
 }
@@ -89,8 +89,8 @@ var Qibla = {
 
 // start displaying qibla on map
 Qibla.startMap = function(params) {
-	if (!window.GBrowserIsCompatible || !GBrowserIsCompatible())
-		return;
+	//if (!window.GBrowserIsCompatible || !GBrowserIsCompatible())
+	//	return;
 
 	params = params || {};
 	startLat = 1* (params.lat || this.homeLat);
@@ -99,8 +99,8 @@ Qibla.startMap = function(params) {
 	startType = params.type || this.mapType;
 
 	this.initAddressBar();
-	this.home = new GLatLng(startLat, startLng);
-	this.kaba = new GLatLng(this.kabaLat, this.kabaLng);
+	this.home = new google.maps.LatLng(startLat, startLng);
+	this.kaba = new google.maps.LatLng(this.kabaLat, this.kabaLng);
 
 	this.initMap();
 	this.setMapType(startType);
@@ -149,41 +149,46 @@ Qibla.checkResize = function() {
 
 // initialize the map
 Qibla.initMap = function() {
-	this.map = new GMap2($('QMap'));
-	this.geocoder = new GClientGeocoder();
+	this.map = new google.maps.Map($('QMap'));
+	this.geocoder = new google.maps.Geocoder();
 
-	this.map.addMapType(G_PHYSICAL_MAP);
-	this.map.addMapType(G_SATELLITE_3D_MAP);
+	this.map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
+	//this.map.addMapType(G_SATELLITE_3D_MAP);
 	//this.map.removeMapType(G_SATELLITE_MAP);
-	this.map.addControl(new GMenuMapTypeControl());
-	this.largeMapControl = new GLargeMapControl();
-	this.smallMapControl = new GSmallMapControl();
-	this.scaleControl = new GScaleControl();
+	//this.map.addControl(new GMenuMapTypeControl());
+	//this.largeMapControl = new GLargeMapControl();
+	//this.smallMapControl = new GSmallMapControl();
 	this.addControls();
 
-	this.kabaMarker = new GMarker(this.kaba, {icon: this.initIcon(this.kabaIcon), clickable: false});
-	this.homeRMarker = new GMarker(this.kaba, {icon: this.initIcon(this.homeRIcon), clickable: false});
-	this.homeLMarker = new GMarker(this.kaba, {icon: this.initIcon(this.homeLIcon), clickable: false});
+	var marker = new google.maps.Marker({
+        position: this.kaba,
+        map: this.map,
+        icon: 'https://qiblih.com/images/ftr-star.png'
+      });
+
+	//this.kabaMarker = new GMarker(this.kaba, {icon: this.initIcon(this.kabaIcon), clickable: false});
+	//this.homeRMarker = new GMarker(this.kaba, {icon: this.initIcon(this.homeRIcon), clickable: false});
+	//this.homeLMarker = new GMarker(this.kaba, {icon: this.initIcon(this.homeLIcon), clickable: false});
 
 	if (this.updateMode == 0)
-		GEvent.addListener(this.map, 'move', function(){ Qibla.setHome() });
+		google.maps.event.addListener(this.map, 'move', function(){ Qibla.setHome() });
 	else
-		GEvent.addListener(this.map, 'click', function(marker, point){ Qibla.setHome(point, marker) });
-	GEvent.addListener(this.map, 'maptypechanged', function(){ Qibla.redraw() });
+		google.maps.event.addListener(this.map, 'click', function(marker, point){ Qibla.setHome(point, marker) });
+	google.maps.event.addListener(this.map, 'maptypechanged', function(){ Qibla.redraw() });
 }
 
 // init controls
 Qibla.addControls = function() {
 	var height = this.map.getSize().height;
 	if (height > 300) {
-		this.map.removeControl(this.smallMapControl);
-		this.map.addControl(this.largeMapControl);
-		this.map.addControl(this.scaleControl);
+		//this.map.removeControl(this.smallMapControl);
+		//this.map.addControl(this.largeMapControl);
+		this.map.setScalecontrol(true);
 	}
 	else {
-		this.map.removeControl(this.largeMapControl);
-		this.map.removeControl(this.scaleControl);
-		this.map.addControl(this.smallMapControl);
+		//this.map.removeControl(this.largeMapControl);
+		//this.map.removeControl(this.scaleControl);
+		//this.map.addControl(this.smallMapControl);
 	}
 }
 
@@ -275,7 +280,7 @@ Qibla.drawLines = function() {
 		this.extDraw();
 
 	var qiblaSegments = is3DMap ? [this.home, this.kaba] : this.greatCircle(this.home, this.kaba);
-	this.map.addOverlay(new GPolyline(qiblaSegments, this.lineColor, 4, 0.8));
+	//this.map.addOverlay(new GPolyline(qiblaSegments, this.lineColor, 4, 0.8));
 
 }
 
@@ -431,7 +436,7 @@ Qibla.locateAddress = function(address, hideInfo) {
 		alert(this.addressBarMsg);
 		return;
 	}
-	this.geocoder.getLocations(address, function(resp){ Qibla.showAddressOnMap(resp, hideInfo) });
+	this.geocoder.geocode({'address' : address}, function(resp){ Qibla.showAddressOnMap(resp, hideInfo) });
 }
 
 // show address on map
@@ -444,7 +449,7 @@ Qibla.showAddressOnMap = function(response, hideInfo) {
 	}
 	else {
 		var place = response.Placemark[0];
-		this.home = new GLatLng(place.Point.coordinates[1], place.Point.coordinates[0]);
+		this.home = new google.maps.LatLng(place.Point.coordinates[1], place.Point.coordinates[0]);
 		var zoom = 4+ parseInt(1.5* place.AddressDetails.Accuracy);
 		zoom = Math.min(zoom, this.map.getCurrentMapType().getMaximumResolution());
 		this.map.setCenter(this.home, zoom);
@@ -492,7 +497,7 @@ CartesianPoint.prototype.spherical = function() {
 	var sinPhi = Math.sin(phi);
 	var theta = Math.atan2(this.y/sinPhi, this.x/sinPhi);
 	var degreesPerRadian = 180/Math.PI;
-	return new GLatLng(degreesPerRadian*(Math.PI/2 - phi), degreesPerRadian*theta);
+	return new google.maps.LatLng(degreesPerRadian*(Math.PI/2 - phi), degreesPerRadian*theta);
 }
 
 function cartesian(point) {
