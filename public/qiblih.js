@@ -183,7 +183,7 @@ Qibla.addControls = function() {
 	if (height > 300) {
 		//this.map.removeControl(this.smallMapControl);
 		//this.map.addControl(this.largeMapControl);
-		this.map.setScalecontrol(true);
+		this.map.set('scaleControl', true);
 	}
 	else {
 		//this.map.removeControl(this.largeMapControl);
