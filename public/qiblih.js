@@ -179,7 +179,7 @@ Qibla.initMap = function() {
 
 // init controls
 Qibla.addControls = function() {
-	var height = this.map.getSize().height;
+	var height = this.map.getDiv().offsetHeight;
 	if (height > 300) {
 		//this.map.removeControl(this.smallMapControl);
 		//this.map.addControl(this.largeMapControl);
