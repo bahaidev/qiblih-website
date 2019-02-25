@@ -66,7 +66,7 @@ Qibla.initMap = function() {
 		$('QMap'), {
 		center: this.home,
 		zoom: this.zoom,
-		mapTypeId: new google.maps.mapTypeId.TERRAIN;	
+		mapTypeId: new google.maps.mapTypeId.TERRAIN	
 	});
 
 	// Try HTML5 geolocation - user must allow browser to detect their location
@@ -83,5 +83,11 @@ Qibla.initMap = function() {
 
 
 }
+
+
+//-------------------------- Misc Functions -----------------------
+
+Qibla.init();
+
 
 
