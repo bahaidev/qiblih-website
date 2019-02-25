@@ -78,7 +78,7 @@ Qibla.initMap = function() {
             };
             
             this.map.setCenter(pos);
-        }
+        });
     }
 
 
