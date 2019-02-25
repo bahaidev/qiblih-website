@@ -90,20 +90,13 @@ pageTracker._trackPageview();
 </body>
 </html>
 <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyAG4vQVaJVxuHn-xbjga5RhJBT35eSTRQM"></script>
-<script src="qiblih.js"></script>
+<script src="qiblih-update.js"></script>
 
 <script>
 
 	// init Qiblih map
 	function init()	{
-		var params = {
-			lat:  '',
-			lng:  '',
-			zoom: '',
-			type: '',
-			addr: ''
-		};
-		Qibla.startMap(params);
+		Qibla.startMap();
 	}
 
 	window.addEventListener('load', init);
