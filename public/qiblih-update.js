@@ -63,7 +63,7 @@ Qibla.startMap = function() {
 Qibla.initMap = function() {
 
 	this.map = new google.maps.Map(
-		$('QMap'), {
+		$("#QMap"), {
 		center: this.home,
 		zoom: this.zoom,
 		mapTypeId: new google.maps.mapTypeId.TERRAIN	
