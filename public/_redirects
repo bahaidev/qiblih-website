@@ -1,5 +1,6 @@
 # Redirect domain aliases to primary domain
 https://m.qiblih.com/* https://qiblih.com/:splat 301!
+https://leaflet.qiblih.com/* https://qiblih.com/:splat 301!
 
 # Optional: Redirect default Netlify subdomain to primary domain
 https://qiblih.netlify.com/* https://qiblih.com/:splat 301!
