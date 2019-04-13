@@ -28,6 +28,7 @@ body {
 }
 #map {
     height: 30rem;
+    border: solid 1px #7a736b
 }
 
 .info {
