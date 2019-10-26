@@ -128,7 +128,7 @@ L.Geodesic = L.Polyline.extend({
    */
   createCircle: function(center, radius) {
     let polylineIndex = 0;
-    let prev = {
+    let prev = { // lgtm [js/useless-assignment-to-local]
       lat: 0,
       lng: 0,
       brg: 0
@@ -219,7 +219,7 @@ L.Geodesic = L.Polyline.extend({
               _geo[_geocnt].push(gp);
               prev = gp;
               s++;
-            }  
+            }
           } else {
             _geo[_geocnt].push(gp);
             // Dashed lines start a new line
