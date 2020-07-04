@@ -40,12 +40,14 @@ function drawLine(d) {
         steps: 50
     }).addTo(result);
 
-    info.update(geodesic.statistics);
+    let vector = geodesic.geom.geodesic.inverse(B.getLatLng(), A.getLatLng());
+    info.update(geodesic.statistics, vector.initialBearing.toFixed(0));
 
     // update the geodesic line when the B marker is dragged
     B.on('drag', (e) => {
         geodesic.setLatLngs([A.getLatLng(), e.latlng])
-        info.update(geodesic.statistics);
+        let vector = geodesic.geom.geodesic.inverse(e.latlng, A.getLatLng());
+        info.update(geodesic.statistics, vector.initialBearing.toFixed(0));
     });
 }
 
@@ -74,7 +76,9 @@ info.onAdd = function (map) {
     return this._div;
 };
 
-info.update = function (stats) {
-    this._div.innerHTML = '<h4>Distance</h4>' +  (stats ? (stats.totalDistance>10000)?(stats.totalDistance/1000).toFixed(0)+' km':(stats.totalDistance).toFixed(0)+' m' : 'invalid');
+info.update = function (stats, bearing) {
+    this._div.innerHTML = '<h4>Distance</h4>' + 
+    (stats ? (stats.totalDistance>10000)?(stats.totalDistance/1000).toFixed(0)+' km':(stats.totalDistance).toFixed(0)+' m' : 'invalid') + 
+    '<h4>Bearing</h4>' + bearing;
 };
 info.addTo(map);
