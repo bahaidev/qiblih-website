@@ -33,21 +33,20 @@ function drawLine(d) {
     var B = L.marker(home, {draggable: true}).addTo(result)
         .bindPopup("You can reposition this marker. <br> The line points to <b>Bahjí</b>.").openPopup();
 
-    var Geodesic = L.geodesic([[A.getLatLng(), B.getLatLng()]], {
+    const geodesic = L.geodesic([A.getLatLng(), B.getLatLng()], {
         weight: 7,
         opacity: 0.5,
         color: 'blue',
         steps: 50
     }).addTo(result);
 
-    Geodesic.update = function () {
-        Geodesic.setLatLngs([[A.getLatLng(), B.getLatLng()]]);
-        info.update(Geodesic._vincenty_inverse(A.getLatLng(), B.getLatLng()));
-    };
+    info.update(geodesic.statistics);
 
-    Geodesic.update();
-    A.on('drag', Geodesic.update);
-    B.on('drag', Geodesic.update);
+    // update the geodesic line when the B marker is dragged
+    B.on('drag', (e) => {
+        geodesic.setLatLngs([A.getLatLng(), e.latlng])
+        info.update(geodesic.statistics);
+    });
 }
 
 function onLocationFound(e) {
@@ -75,7 +74,7 @@ info.onAdd = function (map) {
     return this._div;
 };
 
-info.update = function (props) {
-    this._div.innerHTML = '<h4>Distance</h4>' +  (props ? (props.distance>10000)?(props.distance/1000).toFixed(0)+' km':(props.distance).toFixed(0)+' m' : 'invalid');
+info.update = function (stats) {
+    this._div.innerHTML = '<h4>Distance</h4>' +  (stats ? (stats.totalDistance>10000)?(stats.totalDistance/1000).toFixed(0)+' km':(stats.totalDistance).toFixed(0)+' m' : 'invalid');
 };
 info.addTo(map);
