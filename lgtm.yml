@@ -1,0 +1,7 @@
+extraction:
+  javascript:
+    index:
+      filters:
+        # Avoid reporting issues on lgtm.com with this built file
+        - exclude: "public/js/qiblih.js"
+        - exclude: "public/vendor"
