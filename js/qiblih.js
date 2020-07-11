@@ -1,3 +1,4 @@
+/* globals L, require */
 const Magvar = require('magvar');
 var map = L.map('map').setView([50, -40], 3);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
@@ -59,9 +60,9 @@ function drawLine(d) {
 function magBearing(Bearing, Magvar) {
   var magBearing = Number(Bearing) + Number(Magvar);
   if (magBearing < 0) {
-    var magBearing = 360 + magBearing;
+    magBearing = 360 + magBearing;
   } else if (magBearing > 360) {
-    var magBearing = magBearing - 360;
+    magBearing = magBearing - 360;
   }
   return magBearing;
 }
@@ -72,7 +73,7 @@ function onLocationFound(e) {
 
 }
 
-function onLocationError(e) {
+function onLocationError(/* e */) {
     var home = new L.LatLng(42.074481, -87.684267);
     drawLine(home);
     map.setView(home, 16);
@@ -85,15 +86,15 @@ map.locate({setView: true, maxZoom: 16});
 
 var info = L.control();
 
-info.onAdd = function (map) {
+info.onAdd = function (/* map */) {
     this._div = L.DomUtil.create('div', 'info');
     this.update();
     return this._div;
 };
 
 info.update = function (stats, bearing) {
-    this._div.innerHTML = '<h4>Distance</h4>' + 
-    (stats ? (stats.totalDistance>10000)?(stats.totalDistance/1000).toFixed(0)+' km':(stats.totalDistance).toFixed(0)+' m' : 'invalid') + 
+    this._div.innerHTML = '<h4>Distance</h4>' +
+    (stats ? (stats.totalDistance>10000)?(stats.totalDistance/1000).toFixed(0)+' km':(stats.totalDistance).toFixed(0)+' m' : 'invalid') +
     '<br/> <br/> <h4>Magnetic Bearing</h4>' + (bearing ? bearing + '°': 'invalid');
 };
 info.addTo(map);
