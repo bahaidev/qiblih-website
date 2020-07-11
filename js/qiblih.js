@@ -1,4 +1,4 @@
-const Magvar = require('magvar')
+const Magvar = require('magvar');
 var map = L.map('map').setView([50, -40], 3);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
     maxZoom: 19,
