@@ -22,5 +22,8 @@ module.exports = {
       }
     }
   ],
-  rules: {}
+  rules: {
+    indent: ['error', 2],
+    quotes: ['error', 'single']
+  }
 };
