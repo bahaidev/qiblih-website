@@ -24,6 +24,16 @@ module.exports = {
   ],
   rules: {
     indent: ['error', 2],
-    quotes: ['error', 'single']
+    quotes: ['error', 'single'],
+    'prefer-const': ['error'],
+    'no-var': ['error'],
+    'prefer-destructuring': ['error'],
+    'object-shorthand': ['error'],
+    'object-curly-spacing': ['error', 'never'],
+    'quote-props': ['error', 'as-needed'],
+    'brace-style': ['error', '1tbs'],
+    'prefer-template': ['error'],
+    'space-infix-ops': ['error'],
+    'template-curly-spacing': ['error', 'never']
   }
 };
