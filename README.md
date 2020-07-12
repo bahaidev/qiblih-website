@@ -16,3 +16,7 @@ Copyright © Bahá'í International Community
 
 Bootstrap HTML template based on [Start Bootstrap - Scrolling Nav](https://github.com/BlackrockDigital/startbootstrap-scrolling-nav)
 Copyright 2013-2019 Blackrock Digital LLC. Code released under the MIT license.
+
+## Developing
+
+See [DEVELOPMENT](./DEVELOPMENT.md).
