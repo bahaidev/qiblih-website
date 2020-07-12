@@ -1,6 +1,13 @@
-(function($) {
-  'use strict'; // Start of use strict
+// For chance to instead use on CDN with `integrity`, filed
+//   https://github.com/gdsmith/jquery.easing/issues/37
+// For transparent versioning, filed https://github.com/gdsmith/jquery.easing/issues/38
+// ESM support also suggested (which could avoid need for rollup
+//  commonjs plugin dependency): https://github.com/gdsmith/jquery.easing/issues/30#issuecomment-657170572
+/* globals $ */
+// import 'jquery.easing';
+import '../../node_modules/jquery.easing/jquery.easing.js';
 
+export default function jqueryEasing () {
   // Smooth scrolling using jQuery easing
   $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
@@ -26,4 +33,5 @@
     offset: 56
   });
 
-})(jQuery); // End of use strict
+  return $;
+}

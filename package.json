@@ -4,8 +4,12 @@
   "version": "0.1.0",
   "description": "Home for https://qiblih.com",
   "scripts": {
+    "open-dev": "open-cli http://127.0.0.1:5000/src/ && npm start",
+    "open": "open-cli http://127.0.0.1:5000/public/ && npm start",
+    "start": "serve",
+    "rollup": "rollup -c",
     "eslint": "eslint --report-unused-disable-directives .",
-    "browserify": "browserify js/qiblih.js -o public/js/qiblih.js"
+    "update-cdns": "integrity src/index.html --dropModules --dropBase --forceIntegrityChecks --urlIntegrityCheck -o public/index.html"
   },
   "repository": {
     "type": "git",
@@ -19,7 +23,7 @@
   "contributors": [
     "Brett Zamir <brettz9@yahoo.com> (http://brett-zamir.me/)"
   ],
-  "license": "UNLICENSED",
+  "license": "(MIT AND UNLICENSED)",
   "bugs": {
     "url": "https://github.com/bahaidev/qiblih-website/issues"
   },
@@ -27,8 +31,24 @@
   "engines": {},
   "dependencies": {},
   "devDependencies": {
-    "browserify": "^16.5.1",
-    "eslint": "^7.4.0",
-    "magvar": "^1.0.2"
+    "@babel/core": "^7.11.1",
+    "@fortawesome/fontawesome-free": "^5.14.0",
+    "@rollup/plugin-babel": "^5.1.0",
+    "@rollup/plugin-node-resolve": "^8.4.0",
+    "bootstrap": "^4.5.2",
+    "eslint": "^7.6.0",
+    "esri-leaflet": "^2.5.0",
+    "esri-leaflet-geocoder": "^2.3.3",
+    "geomag": "^1.0.0",
+    "integrity-matters": "^0.11.0",
+    "jquery": "^3.5.1",
+    "jquery.easing": "^1.4.1",
+    "leaflet": "^1.6.0",
+    "leaflet.geodesic": "^2.5.4",
+    "open-cli": "^6.0.1",
+    "popper.js": "^1.16.1",
+    "rollup": "^2.23.1",
+    "rollup-plugin-terser": "^7.0.0",
+    "serve": "^11.3.2"
   }
 }
