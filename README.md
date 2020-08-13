@@ -9,7 +9,7 @@ The `public` folder gets deployed to the <https://www.netlify.com/> web host.<br
 
 ## Attributions
 
-Map generated with [Leaflet](https://leafletjs.com/), [Leaflet.Geodesic](https://github.com/henrythasler/Leaflet.Geodesic), [magvar](https://github.com/dpyeates/magvar) `1.0.2` and [Esri Leaflet Geocoder](https://github.com/Esri/esri-leaflet-geocoder)
+Map generated with [Leaflet](https://leafletjs.com/), [Leaflet.Geodesic](https://github.com/henrythasler/Leaflet.Geodesic), [geomag](https://github.com/janrg/geomag) and [Esri Leaflet Geocoder](https://github.com/Esri/esri-leaflet-geocoder)
 
 [Pathway to the Shrine of Bahá’u’lláh Photo](https://media.bahai.org/detail/2281710/)
 Copyright © Bahá'í International Community
