@@ -8,6 +8,9 @@ module.exports = {
     browser: true,
     es6: true
   },
+  parserOptions: {
+    sourceType: 'module'
+  },
   overrides: [
     {
       files: ['.eslintrc.js'],

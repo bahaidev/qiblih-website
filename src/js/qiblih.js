@@ -1,5 +1,11 @@
-/* globals L, require */
-const Magvar = require('magvar');
+/* globals L */
+
+// import * as Geomag from 'geomag';
+import * as Geomag from '../../node_modules/geomag/dist/geomag.mjs';
+import scrollingNav from './scrolling-nav.js';
+
+scrollingNav();
+
 const map = L.map('map').setView([50, -40], 3);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
   maxZoom: 19,
@@ -43,22 +49,22 @@ function drawLine(d) {
   }).addTo(result);
 
   const vector = geodesic.geom.geodesic.inverse(B.getLatLng(), A.getLatLng());
-  const magVar = Magvar.get(B.getLatLng().lat, B.getLatLng().lng);
-  info.update(geodesic.statistics, magBearing(vector.initialBearing.toFixed(0), magVar));
+  const {declination} = Geomag.field(B.getLatLng().lat, B.getLatLng().lng);
+  info.update(geodesic.statistics, magBearing(vector.initialBearing.toFixed(0), declination));
 
   // update the geodesic line when the B marker is dragged
-  // also update the bearing and magvar calculation
+  // also update the bearing and Geomag calculation
   B.on('drag', (e) => {
     geodesic.setLatLngs([A.getLatLng(), e.latlng])
     const vector = geodesic.geom.geodesic.inverse(e.latlng, A.getLatLng());
-    const magVar = Magvar.get(e.latlng.lat, e.latlng.lng);
-    info.update(geodesic.statistics, magBearing(vector.initialBearing.toFixed(0), magVar));
+    const {declination} = Geomag.field(e.latlng.lat, e.latlng.lng);
+    info.update(geodesic.statistics, magBearing(vector.initialBearing.toFixed(0), declination));
   });
 }
 
 // Check if bearing is less than 0 or greater than 360
-function magBearing(Bearing, Magvar) {
-  let magBearing = Number(Bearing) + Number(Magvar);
+function magBearing(Bearing, declination) {
+  let magBearing = Number(Bearing) + declination;
   if (magBearing < 0) {
     magBearing = 360 + magBearing;
   } else if (magBearing > 360) {
