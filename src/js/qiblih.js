@@ -70,7 +70,7 @@ function magBearing(Bearing, declination) {
   } else if (magBearing > 360) {
     magBearing = magBearing - 360;
   }
-  return magBearing;
+  return Math.round(magBearing);
 }
 
 function onLocationFound(e) {
