@@ -1,2 +1,3 @@
-/samples/*
+/samples
 node_modules
+/public
