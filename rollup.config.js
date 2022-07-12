@@ -1,6 +1,7 @@
 import {terser} from 'rollup-plugin-terser';
 // import nodeResolve from '@rollup/plugin-node-resolve';
 import babel from '@rollup/plugin-babel';
+import copy from 'rollup-plugin-copy'
 
 export default [
   {
@@ -15,7 +16,12 @@ export default [
       babel({
         babelHelpers: 'bundled'
       }),
-      terser()
+      terser(),
+      copy({
+        targets: [
+          { src: 'src/assets/*', dest: 'public/' }
+        ]
+      })
     ]
   }
 ];
