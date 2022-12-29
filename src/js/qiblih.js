@@ -7,13 +7,11 @@ import '../scss/main.scss'
 import * as bootstrap from 'bootstrap'
 
 // Import all Leaflet related
-import '../../node_modules/leaflet/dist/leaflet.js'
-import '../../node_modules/leaflet.geodesic/dist/leaflet.geodesic.umd.min.js'
-import '../../node_modules/esri-leaflet/dist/esri-leaflet.js'
-import '../../node_modules/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.js'
+import * as L from 'leaflet'
+import 'leaflet.geodesic'
+import * as esriLeafletGeocoder from 'esri-leaflet-geocoder'
 
-// import * as Geomag from 'geomag';
-import * as Geomag from '../../node_modules/geomag/dist/geomag.mjs';
+import * as Geomag from 'geomag';
 
 //import scrollingNav from './scrolling-nav.js';
 //scrollingNav();
@@ -26,9 +24,9 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
 }).addTo(map);
 
-const searchControl = L.esri.Geocoding.geosearch({
+const searchControl = esriLeafletGeocoder.geosearch({
   providers: [
-    L.esri.Geocoding.arcgisOnlineProvider({
+    esriLeafletGeocoder.arcgisOnlineProvider({
       // API Key to be passed to the ArcGIS Online Geocoding Service
       apikey: 'AAPK7d386b9e678143fb956e374afae8e0b0gShdJi74zlL90PEq_tlA2qe7ehZJAXflp2hixSIkzdfg_QE0tX5aDzy63265tFb8'
     })
