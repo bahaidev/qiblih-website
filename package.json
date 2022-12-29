@@ -45,7 +45,7 @@
     "jquery": "^3.5.1",
     "jquery.easing": "^1.4.1",
     "leaflet": "^1.7.1",
-    "leaflet.geodesic": "^2.5.4",
+    "leaflet.geodesic": "^2.6.1",
     "open-cli": "^7.1.0",
     "popper.js": "^1.16.1",
     "rollup": "^3.9.0",
