@@ -13,6 +13,7 @@ export default {
   },
   build: {
     outDir: '../public',
-    emptyOutDir: true
+    emptyOutDir: true,
+    sourcemap: true
   }
 }
