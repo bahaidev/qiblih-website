@@ -1,10 +1,22 @@
 /* globals L */
 
+// Import our custom CSS
+import '../scss/main.scss'
+
+// Import all of Bootstrap's JS
+import * as bootstrap from 'bootstrap'
+
+// Import all Leaflet related
+import '../../node_modules/leaflet/dist/leaflet.js'
+import '../../node_modules/leaflet.geodesic/dist/leaflet.geodesic.umd.min.js'
+import '../../node_modules/esri-leaflet/dist/esri-leaflet.js'
+import '../../node_modules/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.js'
+
 // import * as Geomag from 'geomag';
 import * as Geomag from '../../node_modules/geomag/dist/geomag.mjs';
-import scrollingNav from './scrolling-nav.js';
+//import scrollingNav from './scrolling-nav.js';
 
-scrollingNav();
+//scrollingNav();
 
 const map = L.map('map').setView([50, -40], 3);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {

@@ -1,3 +1,10 @@
+// Import all of Bootstrap's CSS
+@import "~bootstrap/scss/bootstrap";
+
+// Import Leaflet CSS
+@import "../../node_modules/leaflet/dist/leaflet.css";
+@import "../../node_modules/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css";
+
 header {
     padding: 156px 0 100px;
 }
