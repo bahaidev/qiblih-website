@@ -14,8 +14,8 @@ import '../../node_modules/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.js'
 
 // import * as Geomag from 'geomag';
 import * as Geomag from '../../node_modules/geomag/dist/geomag.mjs';
-//import scrollingNav from './scrolling-nav.js';
 
+//import scrollingNav from './scrolling-nav.js';
 //scrollingNav();
 
 const map = L.map('map').setView([50, -40], 3);
