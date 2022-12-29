@@ -31,11 +31,7 @@
   "homepage": "https://github.com/bahaidev/qiblih-website#readme",
   "engines": {},
   "devDependencies": {
-    "@babel/core": "^7.20.7",
     "@fortawesome/fontawesome-free": "^5.15.2",
-    "@rollup/plugin-babel": "^6.0.3",
-    "@rollup/plugin-node-resolve": "^15.0.1",
-    "@rollup/plugin-terser": "^0.2.1",
     "bootstrap": "^4.6.0",
     "eslint": "^8.30.0",
     "esri-leaflet": "^3.0.9",
@@ -48,8 +44,6 @@
     "leaflet.geodesic": "^2.6.1",
     "open-cli": "^7.1.0",
     "popper.js": "^1.16.1",
-    "rollup": "^3.9.0",
-    "rollup-plugin-copy": "^3.4.0",
-    "serve": "^14.1.2"
+    "vite": "^4.0.3"
   }
 }
