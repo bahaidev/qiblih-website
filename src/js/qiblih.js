@@ -15,6 +15,12 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r
 }).addTo(map);
 
 const searchControl = L.esri.Geocoding.geosearch({
+  providers: [
+    L.esri.Geocoding.arcgisOnlineProvider({
+      // API Key to be passed to the ArcGIS Online Geocoding Service
+      apikey: 'AAPK7d386b9e678143fb956e374afae8e0b0gShdJi74zlL90PEq_tlA2qe7ehZJAXflp2hixSIkzdfg_QE0tX5aDzy63265tFb8'
+    })
+  ],
   useMapBounds:false,
   allowMultipleResults: false,
   placeholder: 'Search for your address',
