@@ -12,12 +12,11 @@ body {
     padding-top: 3.5rem; // needed for fixed nav
 }
 
-.bg-image-full {
-    background: no-repeat center center scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+.header-image-full {
+  object-fit: cover;
+  height: 19rem;
+  max-width: 100%;
+  width: 100%;
 }
 
 .footer a {
