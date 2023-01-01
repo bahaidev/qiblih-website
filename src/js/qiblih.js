@@ -13,9 +13,6 @@ import * as esriLeafletGeocoder from 'esri-leaflet-geocoder'
 
 import * as Geomag from 'geomag';
 
-//import scrollingNav from './scrolling-nav.js';
-//scrollingNav();
-
 
 const map = L.map('map').setView([50, -40], 3);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
@@ -133,3 +130,21 @@ info.update = function (stats, bearing) {
   }<br/> <br/> <h4>Magnetic Bearing</h4>${bearing ? `${bearing}°` : 'invalid'}`;
 };
 info.addTo(map);
+
+
+// on mobile hide menu on click
+window.addEventListener('DOMContentLoaded', event => {
+    // Collapse responsive navbar when toggler is visible
+    const navbarToggler = document.body.querySelector('.navbar-toggler');
+    const responsiveNavItems = [].slice.call(
+        document.querySelectorAll('#navbarResponsive .nav-link')
+    );
+    responsiveNavItems.map(function (responsiveNavItem) {
+        responsiveNavItem.addEventListener('click', () => {
+            if (window.getComputedStyle(navbarToggler).display !== 'none') {
+                navbarToggler.click();
+            }
+        });
+    });
+
+});

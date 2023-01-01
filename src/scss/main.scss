@@ -1,3 +1,6 @@
+// Bootstrap variable overrides
+$primary:       #7a736b;
+
 // Import all of Bootstrap's CSS
 @import "~bootstrap/scss/bootstrap";
 
@@ -5,16 +8,8 @@
 @import "../../node_modules/leaflet/dist/leaflet.css";
 @import "../../node_modules/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css";
 
-header {
-    padding: 156px 0 100px;
-}
-
-section {
-    padding: 50px 0;
-}
-
 body {
-    padding-top: 56px;
+    padding-top: 3.5rem; // needed for fixed nav
 }
 
 .bg-image-full {
@@ -23,10 +18,6 @@ body {
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-}
-
-.background {
-    background-color: #7a736b;
 }
 
 .footer a {
@@ -51,8 +42,4 @@ body {
     margin: 0 0 5px;
     font-size: 1.0rem;
     font-weight: bold;
-}
-
-.hidden {
-    display: none;
 }

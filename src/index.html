@@ -22,40 +22,38 @@
 
 </head>
 
-<body id="page-top">
+<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav">
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top background" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">Find the direction to Bahjí</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="mainNav">
+    <div class="container px-4">
+      <a class="navbar-brand" href="#page-top">Find the direction to Bahjí</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+            <a class="nav-link" href="#about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#map">Map</a>
+            <a class="nav-link" href="#map">Map</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#resources">Resources</a>
+            <a class="nav-link" href="#resources">Resources</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            <a class="nav-link" href="#contact">Contact</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-
+  <!-- Header-->
   <header class="py-5 bg-image-full" style="background-image: url('images/2281710-3k-high.jpg');">
     <div style="height: 13rem;"></div>
   </header>
 
   <section id="about">
-    <div class="container">
+    <div class="container py-5">
       <div class="row">
         <div class="col-lg-8 mx-auto">
           <h1>Direction to Bahjí</h1>
@@ -70,7 +68,7 @@
   </section>
 
   <section id="resources" class="bg-light">
-    <div class="container">
+    <div class="container py-5">
       <div class="row">
         <div class="col-lg-8 mx-auto">
           <p class="lead">You may drag and drop the marker to reposition it to your current location or you can click on the search icon on the far left to search for your current address.</p>
@@ -99,28 +97,28 @@
   </section>
 
   <section id="contact">
-    <div class="container">
+    <div class="container py-5">
       <div class="row">
         <div class="col-lg-8 mx-auto">
           <h2>Questions / Suggestions?</h2>
           <form name="contact" role="form" method="post" netlify-honeypot="bot-field" data-netlify="true">
-            <p class="hidden">
+            <p class="visually-hidden">
               <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
             </p>
-            <div class="form-group">
-                <label for="name">
+            <div class="mb-3">
+                <label for="name" class="form-label">
                     Name:</label>
                 <input type="text" class="form-control"
                 id="name" name="name"  required maxlength="50">
             </div>
-            <div class="form-group">
-                <label for="email">
+            <div class="mb-3">
+                <label for="email" class="form-label">
                     Email:</label>
                 <input type="email" class="form-control"
                 id="email" name="email" required maxlength="50">
             </div>
-            <div class="form-group">
-                <label for="message">
+            <div class="mb-3">
+                <label for="message" class="form-label">
                     Message:</label>
                 <textarea class="form-control" type="textarea" name="message"
                 id="message" placeholder="Your Message Here"
@@ -134,7 +132,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="py-5 background footer">
+  <footer class="py-5 bg-primary footer">
     <div class="container">
       <p class="m-0 text-center text-white-50">Qiblih.com 2009 - 2022<br>
       <a href="https://media.bahai.org/detail/2281710/">Pathway to the Shrine of Bahá’u’lláh Photo</a> - Copyright © Bahá'í International Community<br>
