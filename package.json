@@ -8,7 +8,8 @@
     "open": "npm start && open-cli http://127.0.0.1:8080",
     "start": "vite",
     "eslint": "eslint --report-unused-disable-directives .",
-    "build": "vite build"
+    "images": "node image-processing.js",
+    "build": "npm run images && vite build"
   },
   "repository": {
     "type": "git",
@@ -39,6 +40,7 @@
     "leaflet.geodesic": "^2.6.1",
     "open-cli": "^7.1.0",
     "sass": "^1.57.1",
+    "sharp": "^0.31.3",
     "vite": "^4.0.3"
   }
 }
