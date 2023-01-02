@@ -1,9 +1,13 @@
 // Bootstrap variable overrides
-$primary:       #7a736b;
+$primary:                #7a736b;
+$headings-font-family:   Crimson Text;
+$headings-font-weight:        600;
+$navbar-brand-font-size: 1.5rem;
 
 // Import all of Bootstrap's CSS
 @import "~bootstrap/scss/bootstrap";
-
+// Import Web fonts
+@import "fonts";
 // Import Leaflet CSS
 @import "../../node_modules/leaflet/dist/leaflet.css";
 @import "../../node_modules/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css";
@@ -12,6 +16,10 @@ body {
     padding-top: 3.5rem; // needed for fixed nav
 }
 
+.navbar-brand-font {
+  font-family: 'Crimson Text';
+  font-weight: 400;
+}
 .header-image-full {
   object-fit: cover;
   min-height: 11rem;

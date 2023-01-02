@@ -1,3 +1,5 @@
+import legacy from '@vitejs/plugin-legacy'
+
 const path = require('path')
 
 export default {
@@ -11,6 +13,11 @@ export default {
     port: 8080,
     hot: true
   },
+  plugins: [
+    legacy({
+      targets: ['defaults'],
+    }),
+  ],
   build: {
     outDir: '../public',
     emptyOutDir: true,

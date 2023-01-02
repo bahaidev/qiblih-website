@@ -31,6 +31,7 @@
   "engines": {},
   "devDependencies": {
     "@popperjs/core": "^2.11.6",
+    "@vitejs/plugin-legacy": "^3.0.1",
     "bootstrap": "^5.2.3",
     "eslint": "^8.31.0",
     "esri-leaflet": "^3.0.9",
@@ -41,6 +42,7 @@
     "open-cli": "^7.1.0",
     "sass": "^1.57.1",
     "sharp": "^0.31.3",
+    "terser": "^5.16.1",
     "vite": "^4.0.3"
   }
 }
