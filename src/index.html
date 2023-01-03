@@ -22,7 +22,7 @@
 
 </head>
 
-<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav">
+<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="20">
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="mainNav">
@@ -35,7 +35,7 @@
             <a class="nav-link" href="#about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#map">Map</a>
+            <a class="nav-link" href="#direction">Direction</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#resources">Resources</a>
@@ -84,7 +84,34 @@
     </div>
   </section>
 
-  <section id="map">
+  <section id="direction">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <ul class="nav nav-tabs" id="directionTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="map-tab" data-bs-toggle="tab" data-bs-target="#map-tab-pane" type="button" role="tab" aria-controls="map-tab-pane" aria-selected="true">Map</button>
+            </li>
+            <li class="nav-item" role="presentation">
+               <button class="nav-link" id="compass-tab" data-bs-toggle="tab" data-bs-target="#compass-tab-pane" type="button" role="tab" aria-controls="compass-tab-pane" aria-selected="false">Compass</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="tab-content" id="directionTabContent">
+      <div class="tab-pane fade show active" id="map-tab-pane" role="tabpanel" aria-labelledby="map-tab" tabindex="0">
+        <div id="map"></div>
+      </div>
+      <div class="tab-pane fade" id="compass-tab-pane" role="tabpanel" aria-labelledby="compass-tab" tabindex="0">
+        <div class="compass">
+          <div class="arrow"></div>
+          <div class="compass-circle"></div>
+          <div class="my-point"></div>
+        </div>
+        <button class="start-btn">Start compass</button>
+      </div>
+    </div>
   </section>
 
   <section id="resources" class="bg-light">
