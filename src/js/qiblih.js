@@ -185,8 +185,8 @@ function startCompass() {
 
 function compHandler(e) {
   compass = Math.round(e.webkitCompassHeading || Math.abs(e.alpha - 360));
-  let target = compass + targetBearing - 360;
-  compassCircle.style.transform = `translate(-50%, -50%) rotate(${target}deg)`;
+  let target = compass - targetBearing - 360;
+  compassCircle.style.transform = `translate(-50%, -50%) rotate(${-target}deg)`;
 
   if (target < 15 || target > 345) {
     triangle.style.opacity = 1;
