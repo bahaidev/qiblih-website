@@ -154,7 +154,7 @@ window.addEventListener('DOMContentLoaded', event => {
 // Compass stuff
 const compassCircle = document.querySelector(".compass-circle");
 const startBtn = document.querySelector(".start-btn");
-const myPoint = document.querySelector(".triangle");
+const triangle = document.querySelector(".triangle");
 let compass;
 const isIOS = (
   navigator.userAgent.match(/(iPod|iPhone|iPad)/) &&
@@ -187,6 +187,12 @@ function compHandler(e) {
   compass = Math.round(e.webkitCompassHeading || Math.abs(e.alpha - 360));
   let target = compass - targetBearing - 360;
   compassCircle.style.transform = `translate(-50%, -50%) rotate(${-target}deg)`;
+
+  if (target < 15 || target > 345) {
+    triangle.style.opacity = 1;
+  } else {
+    triangle.style.opacity = 0;
+  }
 
   document.querySelector("#test").innerHTML = `Current Bearing: ${compass} <br> Target Bearing: ${targetBearing}`;
 }
