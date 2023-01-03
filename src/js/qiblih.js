@@ -152,15 +152,18 @@ window.addEventListener('DOMContentLoaded', event => {
 // Compass stuff
 const compassCircle = document.querySelector(".compass-circle");
 const startBtn = document.querySelector(".start-btn");
-const myPoint = document.querySelector(".my-point");
+const myPoint = document.querySelector(".triangle");
 let compass;
 const isIOS = (
   navigator.userAgent.match(/(iPod|iPhone|iPad)/) &&
   navigator.userAgent.match(/AppleWebKit/)
 );
 
-function init() {
+function initCompass() {
   startBtn.addEventListener("click", startCompass);
+  if (!isIOS) {
+    window.addEventListener("deviceorientationabsolute", compHandler, true);
+  }
 }
 
 function startCompass() {
@@ -169,21 +172,20 @@ function startCompass() {
     DeviceOrientationEvent.requestPermission()
       .then((response) => {
         if (response === "granted") {
-          window.addEventListener("deviceorientation", handler, true);
+          window.addEventListener("deviceorientation", compHandler, true);
         } else {
-          alert("has to be allowed!");
+          alert("The requested permission must be allowed for the compass to function.");
         }
       })
-      .catch(() => alert("not supported"));
-  } else {
-    window.addEventListener("deviceorientationabsolute", handler, true);
-    console.log("is not IOS");
+      .catch(() => alert("DeviceOrientation not supported"));
   }
 }
 
-function handler(e) {
+function compHandler(e) {
   compass = e.webkitCompassHeading || Math.abs(e.alpha - 360);
   compassCircle.style.transform = `translate(-50%, -50%) rotate(${-compass}deg)`;
+
+  document.querySelector("#test").innerHTML = `Current Bearing: ${compass}`;
 }
 
-init();
+initCompass();

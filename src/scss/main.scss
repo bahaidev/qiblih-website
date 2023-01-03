@@ -3,6 +3,7 @@ $primary:                #7a736b;
 $headings-font-family:   Crimson Text;
 $headings-font-weight:        600;
 $navbar-brand-font-size: 1.5rem;
+$nav-tabs-border-width:  2px;
 
 // Import all of Bootstrap's CSS
 @import "~bootstrap/scss/bootstrap";
@@ -69,7 +70,7 @@ body {
   margin: auto;
 }
 
-.compass > .arrow {
+.compass > .triangle {
   position: absolute;
   width: 0;
   height: 0;
@@ -80,20 +81,19 @@ body {
   border-width: 30px 20px 0 20px;
   border-color: red transparent transparent transparent;
   z-index: 1;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
 }
 
 .compass > .compass-circle,
 .compass > .my-point {
   position: absolute;
-  width: 80%;
-  height: 80%;
+  width: 85%;
+  height: 85%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: transform 0.1s ease-out;
-  background: url(https://cdn.onlinewebfonts.com/svg/img_467023.png) center
-    no-repeat;
-  background-size: contain;
+  //transition: transform 0.1s ease-out;
 }
 
 .compass > .my-point {
