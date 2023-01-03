@@ -13,6 +13,7 @@ import * as esriLeafletGeocoder from 'esri-leaflet-geocoder'
 
 import * as Geomag from 'geomag';
 
+let targetBearing = 0;
 
 const map = L.map('map').setView([50, -40], 3);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
@@ -92,7 +93,8 @@ function magBearing(Bearing, declination) {
   } else if (magBearing > 360) {
     magBearing = magBearing - 360;
   }
-  return Math.round(magBearing);
+  targetBearing = Math.round(magBearing);
+  return targetBearing;
 }
 
 function onLocationFound(e) {
@@ -182,10 +184,11 @@ function startCompass() {
 }
 
 function compHandler(e) {
-  compass = e.webkitCompassHeading || Math.abs(e.alpha - 360);
-  compassCircle.style.transform = `translate(-50%, -50%) rotate(${-compass}deg)`;
+  compass = Math.round(e.webkitCompassHeading || Math.abs(e.alpha - 360));
+  let target = compass - targetBearing - 360;
+  compassCircle.style.transform = `translate(-50%, -50%) rotate(${-target}deg)`;
 
-  document.querySelector("#test").innerHTML = `Current Bearing: ${compass}`;
+  document.querySelector("#test").innerHTML = `Current Bearing: ${compass} <br> Target Bearing: ${targetBearing}`;
 }
 
 initCompass();
