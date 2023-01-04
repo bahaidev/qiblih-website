@@ -193,8 +193,12 @@ function compHandler(e) {
   } else {
     triangle.style.opacity = 0;
   }
+  let accurangeString = '';
+  if (e.webkitCompassAccuracy) {
+    accurangeString = `<br> Compass Accuracy Value: ${e.webkitCompassAccuracy}`
+  }
 
-  document.querySelector("#test").innerHTML = `Current Bearing: ${magneticBearing}° <br> True Bearing: ${trueBearing}° <br> Target Bearing: ${targetBearing}°`;
+  document.querySelector("#test").innerHTML = `Bearing to Magnetic North: ${magneticBearing}° ${accurangeString} <br> Bearing to Bahjí: ${targetBearing}°`;
 }
 
 initCompass();
