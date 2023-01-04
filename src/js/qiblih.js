@@ -153,7 +153,7 @@ window.addEventListener('DOMContentLoaded', event => {
 
 // Compass stuff
 const compassCircle = document.querySelector(".compass-circle");
-const startBtn = document.querySelector(".start-btn");
+const startBtn = document.querySelector("#compass-tab");
 const triangle = document.querySelector(".triangle");
 let magneticBearing;
 const isIOS = (
