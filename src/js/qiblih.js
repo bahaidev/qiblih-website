@@ -163,9 +163,6 @@ const isIOS = (
 
 function initCompass() {
   startBtn.addEventListener("click", startCompass);
-  if (!isIOS) {
-    window.addEventListener("deviceorientationabsolute", compHandler, true);
-  }
 }
 
 function startCompass() {
@@ -180,6 +177,11 @@ function startCompass() {
         }
       })
       .catch(() => alert("DeviceOrientation not supported"));
+  } else {
+    window.addEventListener("deviceorientationabsolute", compHandler, true);
+    window.addEventListener('compassneedscalibration', function(event) {
+       alert('Compass needs calibrating! Wave your device in a figure-eight motion');
+    });
   }
 }
 
@@ -195,10 +197,14 @@ function compHandler(e) {
   }
   let accurangeString = '';
   if (e.webkitCompassAccuracy) {
-    accurangeString = `<br> Compass Accuracy Value: ${e.webkitCompassAccuracy}`
+    if (e.webkitCompassAccuracy < 0) {
+      accurangeString = '<br> Compass is not giving usable readings';
+    } else {
+      accurangeString = `<br> Compass Accuracy: ±${Math.round(e.webkitCompassAccuracy)}°`
+    }
   }
 
-  document.querySelector("#test").innerHTML = `Bearing to Magnetic North: ${magneticBearing}° ${accurangeString} <br> Bearing to Bahjí: ${targetBearing}°`;
+  document.querySelector("#compassDetails").innerHTML = `<p>Current Magnetic Bearing: ${magneticBearing}° ${accurangeString} <br> Intended Bearing to Bahjí: ${targetBearing}°</p>`;
 }
 
 initCompass();
