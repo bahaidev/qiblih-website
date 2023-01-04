@@ -151,9 +151,15 @@ window.addEventListener('DOMContentLoaded', event => {
 
 });
 
+// Reload map tiles. Need to do this after the map has been hidden
+function reloadMap() {
+  map.invalidateSize();
+}
+
 // Compass stuff
 const compassCircle = document.querySelector(".compass-circle");
-const startBtn = document.querySelector("#compass-tab");
+const compassBtn = document.querySelector("#compass-tab");
+const mapBtn = document.querySelector("#map-tab");
 const triangle = document.querySelector(".triangle");
 let magneticBearing;
 const isIOS = (
@@ -162,7 +168,8 @@ const isIOS = (
 );
 
 function initCompass() {
-  startBtn.addEventListener("click", startCompass);
+  compassBtn.addEventListener("click", startCompass);
+  mapBtn.addEventListener("click", reloadMap);
 }
 
 function startCompass() {
