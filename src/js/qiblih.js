@@ -155,7 +155,7 @@ window.addEventListener('DOMContentLoaded', event => {
 const compassCircle = document.querySelector(".compass-circle");
 const startBtn = document.querySelector(".start-btn");
 const triangle = document.querySelector(".triangle");
-let compass;
+let magneticBearing;
 const isIOS = (
   navigator.userAgent.match(/(iPod|iPhone|iPad)/) &&
   navigator.userAgent.match(/AppleWebKit/)
@@ -184,17 +184,17 @@ function startCompass() {
 }
 
 function compHandler(e) {
-  compass = Math.round(e.webkitCompassHeading || Math.abs(e.alpha - 360));
-  let target = (360 + targetBearing - compass) % 360;
-  compassCircle.style.transform = `translate(-50%, -50%) rotate(${target}deg)`;
+  magneticBearing = Math.round(e.webkitCompassHeading || Math.abs(e.alpha - 360));
+  let trueBearing = (360 + targetBearing - magneticBearing) % 360;
+  compassCircle.style.transform = `translate(-50%, -50%) rotate(${trueBearing}deg)`;
 
-  if (target < 15 || target > 345) {
+  if (trueBearing < 5 || trueBearing > 355) {
     triangle.style.opacity = 1;
   } else {
     triangle.style.opacity = 0;
   }
 
-  document.querySelector("#test").innerHTML = `Current Bearing: ${compass} <br> Needed Correction: ${target} <br> Target Bearing: ${targetBearing}`;
+  document.querySelector("#test").innerHTML = `Current Bearing: ${magneticBearing}° <br> True Bearing: ${trueBearing}° <br> Target Bearing: ${targetBearing}°`;
 }
 
 initCompass();
