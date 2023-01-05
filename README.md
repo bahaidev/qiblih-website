@@ -4,8 +4,7 @@ This is the source code of the <https://qiblih.com/> website.
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/2e83bf87-458c-4e0c-bb8d-130feb12a85b/deploy-status)](https://app.netlify.com/sites/qiblih/deploys)
 
-The `public` folder gets deployed to the <https://www.netlify.com/> web host.<br>
-`public/js/qiblih.js` is generated from `js/qiblih.js` using [Rollup](https://rollupjs.org/).
+Commits to the master branch are automatically deployed to the <https://www.netlify.com/> web host.
 
 ## Attributions
 

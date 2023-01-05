@@ -10,16 +10,14 @@
 1. `npm run eslint` - Will check the code for common errors. The configuration
     is within `.eslintrc.js` (and `.eslintignore` indicates the files that will
     not be linted).
-1. `npm run rollup` - Will convert the modular source code (housed in `/js`)
-    into a bundle that can be used in the browser. Modifications should
-    therefore be first made in `/js` and after running the `npm run rollup`
-    script, the files in `/public/js` will be updated accordingly. There are
-    currently no build steps for CSS, however, so the non-JavaScript files in
-    `/public` can be edited directly.
-1. `npm start` or `npm run open`/`npm run open-dev` to start a local server,
+1. `npm run images` - Needs to be run to generate the responsive header images.
+    You don't need to run this again until you make changes to the
+    `image-processing.js` script or change the source header image file.
+1. `npm start` or `npm run open`/`npm run open-dev` to start a
+    [Vite] (https://vitejs.dev/) dev server,
     with the latter also auto-opening the page in the browser. You may have
     to refresh the page as the `start` will run afterward.
-1. `npm run update-cdns` - See "Updating dependencies" section below.
+
 
 ### Updating dependencies
 
@@ -33,12 +31,3 @@ If you install globally `npm i -g npm-check-updates`, you can use this within
 any project (including our own) to see if updates are available. To update
 all dependencies to the latest stable versions, for example, you can run
 `npm-check-updates -u` (or just `ncu -u`).
-
-For CDN dependencies, you can auto-update these using `npm run update-cdns`.
-This should auto-update the version and `integrity` based on the latest
-versions indicated by `package.json`. The `crossorigin=''` attribute should
-also be kept (to ensure that the mode is "anonymous", i.e., that user
-credentials such as cookies are not sent by the browser to this third party
-site). The `integrity` attribute helps to prevent a third party CDN from
-serving up potentially malicous code which differs from the original
-dependency code.
