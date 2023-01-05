@@ -4,12 +4,20 @@
 <head>
 
   <meta charset="utf-8">
-  <base href="../public/index.html">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Find the direction to Bahjí. In the Bahá'í Faith the Qiblih is the location that Bahá'ís should face when saying their daily obligatory prayers, and is fixed at the Shrine of Bahá'u'lláh in Bahjí, near Akká, in present day Israel.">
 
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=2">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=2">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=2">
+  <link rel="manifest" href="/images/site.webmanifest?v=2">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg?v=2" color="#768072">
+  <link rel="shortcut icon" href="/images/favicon.ico?v=2">
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="msapplication-config" content="/images/browserconfig.xml?v=2">
+  <meta name="theme-color" content="#ffffff">
+
   <title>Qiblih.com - Find the direction to Bahji</title>
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3958649-6"></script>
@@ -21,87 +29,60 @@
     gtag('config', 'UA-3958649-6');
   </script>
 
-  <!--
-  Bootstrap core CSS
-  Get path and integrity at:
-  https://getbootstrap.com/docs/
-
-  // Todo[bootstrap@>4.6]: If we update the bootstrap version, should also
-  //  look at possible new dependencies (e.g., popper now @popperjs/core)
-  //  see https://github.com/twbs/bootstrap/blob/master/config.yml
-  -->
-  <link
-    rel="stylesheet"
-    href="../node_modules/bootstrap/dist/css/bootstrap.min.css"
-    data-im-algorithms="sha384"
-    crossorigin="anonymous">
-
-  <!-- Fontawesome CSS -->
-  <link
-    rel="stylesheet"
-    href="../node_modules/@fortawesome/fontawesome-free/css/brands.min.css"
-    data-im-cdn="@fortawesome/fontawesome-free"
-    data-im-algorithms="sha384"
-    crossorigin="anonymous">
-  <link
-    rel="stylesheet"
-    href="../node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css"
-    data-im-cdn="@fortawesome/fontawesome-free"
-    data-im-algorithms="sha384"
-    crossorigin="anonymous">
-
-  <link href="css/main.css" rel="stylesheet">
-
-  <!-- Leaflet CSS from CDN -->
-  <link
-    rel="stylesheet"
-    href="../node_modules/leaflet/dist/leaflet.css"
-    data-im-algorithms="sha512"
-    crossorigin=""/>
-
-  <!-- Esri Leaflet Geocoder CSS from CDN -->
-  <link
-    rel="stylesheet"
-    href="../node_modules/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css"
-    data-im-algorithms="sha512"
-    crossorigin="">
-
 </head>
 
-<body id="page-top">
+<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="20">
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top background" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">Find the direction to Bahjí</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="mainNav">
+    <div class="container px-lg-4">
+      <a class="navbar-brand navbar-brand-font" href="#page-top">Find the direction to Bahjí</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+            <a class="nav-link" href="#about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#map">Map</a>
+            <a class="nav-link" href="#direction">Direction</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#resources">Resources</a>
+            <a class="nav-link" href="#resources">Resources</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            <a class="nav-link" href="#contact">Contact</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-
-  <header class="py-5 bg-image-full" style="background-image: url('images/2281710-3k-high.jpg');">
-    <div style="height: 13rem;"></div>
+  <!-- Header-->
+  <header>
+    <picture class="header-image-full">
+        <source type="image/webp"
+          srcset="
+            images/cropped/pathway-cropped-500.webp 500w,
+            images/cropped/pathway-cropped-1000.webp 1000w,
+            images/cropped/pathway-cropped-2000.webp 2000w,
+            images/cropped/pathway-cropped-2500.webp 2500w,
+            images/cropped/pathway-cropped-3000.webp 3000w
+            "/>
+        <img class="header-image-full"
+         alt="Pathway to the Shrine of Bahá’u’lláh"
+         srcset="
+            images/cropped/pathway-cropped-500.jpeg 500w,
+            images/cropped/pathway-cropped-1000.jpeg 1000w,
+            images/cropped/pathway-cropped-2000.jpeg 2000w,
+            images/cropped/pathway-cropped-2500.jpeg 2500w,
+            images/cropped/pathway-cropped-3000.jpeg 3000w
+            "
+         src="images/cropped/pathway-cropped-2000.jpeg"
+        />
+    </picture>
   </header>
 
   <section id="about">
-    <div class="container">
+    <div class="container py-4 py-md-5">
       <div class="row">
         <div class="col-lg-8 mx-auto">
           <h1>Direction to Bahjí</h1>
@@ -112,61 +93,130 @@
     </div>
   </section>
 
-  <section id="map">
+  <section id="direction">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto" id="alertMessage">
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <ul class="nav nav-tabs" id="directionTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="map-tab" data-bs-toggle="tab" data-bs-target="#map-tab-pane" type="button" role="tab" aria-controls="map-tab-pane" aria-selected="true">Map</button>
+            </li>
+            <li class="nav-item" role="presentation">
+               <button class="nav-link" id="compass-tab" data-bs-toggle="tab" data-bs-target="#compass-tab-pane" type="button" role="tab" aria-controls="compass-tab-pane" aria-selected="false">Compass</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="tab-content" id="directionTabContent">
+      <div class="tab-pane fade show active" id="map-tab-pane" role="tabpanel" aria-labelledby="map-tab" tabindex="0">
+        <!-- Map -->
+        <div id="map"></div>
+      </div>
+      <div class="tab-pane fade" id="compass-tab-pane" role="tabpanel" aria-labelledby="compass-tab" tabindex="0">
+        <!-- Compass -->
+        <div class="container py-4">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="text-center mb-4">
+                <h4>The arrow should direct you to Bahjí</h4>
+              </div>
+              <div class="compass">
+                <div class="triangle"></div>
+                <div class="compass-circle">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#6c757d" class="">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75L12 3m0 0l3.75 3.75M12 3v18" />
+                  </svg>
+                </div>
+              </div>
+              <div class="mt-4 text-center" id="compassDetails"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section id="resources" class="bg-light">
-    <div class="container">
+    <div class="container py-5">
       <div class="row">
         <div class="col-lg-8 mx-auto">
           <p class="lead">You may drag and drop the marker to reposition it to your current location or you can click on the search icon on the far left to search for your current address.</p>
           <h2>Resources</h2>
-          <p class="lead"><b>How should the direction of the Qiblih be determined?</b><br>
+          <h5>How should the direction of the Qiblih be determined?</h5>
+          <p class="lead">
           The direction of the Qiblih from a given location on earth may be set
           along the shorter arc of a great circle that passes through Bahjí and the
           point concerned. A great circle in this context is one whose plane
           bisects the earth (e.g., the equator and longitudinal meridians). Bahjí is
           located at approximately 35 degrees east longitude and 33 degrees north
           latitude.</p>
-          <p class="lead"><b>What is the Magnetic Bearing?</b><br>
+          <h5>What is the Magnetic Bearing?</h5>
+          <p class="lead">
             The magnetic bearing is relative to <a href="https://en.wikipedia.org/wiki/North_Magnetic_Pole">magnetic north</a> that a compass needle would point to.
-            <a href="https://en.wikipedia.org/wiki/Compass">North corresponds to 0°, and the angles increase clockwise, so east is 90° degrees, south is 180°, and west is 270°</a>. This value is calculated by adding the magnetic declination, based on the <a href="https://www.ngdc.noaa.gov/geomag/WMM/DoDWMM.shtml">World Magnetic Model 2020-2025</a>, to the true north bearing.</p>
-          <p class="lead"><b>Why is the line not straight when I zoom out to the world view?</b><br>
+            <a href="https://en.wikipedia.org/wiki/Compass">North</a> corresponds to 0°, and the angles increase clockwise, so east is 90° degrees, south is 180°, and west is 270°. This value is calculated by adding the magnetic declination, based on the <a href="https://www.ngdc.noaa.gov/geomag/WMM/DoDWMM.shtml">World Magnetic Model 2020-2025</a>, to the true north bearing.</p>
+          <h5>Why is the line not straight when I zoom out to the world view?</h5>
+          <p class="lead">
           The shortest path lies on an arc of a great circle. When a path along a great circle is drawn on a flat map, it usually looks curved. Using a world globe and a piece of string you can test this out yourself.</p>
-          <p class="lead"><b>Is there an app version?</b><br>
-          You can now get the Qiblih compass as part of <a href="https://www.badi-calendar.com">badi-calendar.com</a>'s <a href="https://www.badi-calendar.com/app.php">Badí' Calendar & Qiblih App</a>.</p>
-          <p><span class="text-secondary">
-            <a class="text-reset" href="https://www.badi-calendar.com/app.php"><i class="fab fa-app-store-ios fa-4x mr-3"></i></a>
-            <a class="text-reset" href="https://www.badi-calendar.com/app.php"><i class="fab fa-google-play fa-4x mr-3"></i></a>
-          </span></p>
+          <h5>Is there an app version?</h5>
+          <p class="lead">
+          The <a href="https://www.badi-calendar.com/app.php">Badí' Calendar & Qiblih App</a> has a Qiblih compass and map feature.<br>
+          &nbsp;</p>
+
+          <h2>Writings from the Kitáb-i-Aqdas, Notes</h2>
+          <figure>
+            <blockquote class="blockquote">
+            <p>The <i>“Point of Adoration,”</i> that is, the point to which the worshiper should turn when offering obligatory prayer, is called the Qiblih. The concept of Qiblih has existed in previous religions. Jerusalem in the past had been fixed for this purpose. Muḥammad changed the Qiblih to Mecca. The Báb’s instructions in the Arabic Bayán were:</p>
+            <p><i>The Qiblih is indeed He Whom God will make manifest; whenever He moveth, it moveth, until He shall come to rest.</i></p>
+            <p>This passage is quoted by Bahá’u’lláh in the Kitáb-i-Aqdas (¶137) and confirmed by Him in the above-noted verse. He has also indicated that facing in the direction of the Qiblih is a <i>“fixed requirement for the recitation of obligatory prayer”</i> (Q&A <a href="https://www.bahai.org/r/257206436">14</a> and <a href="https://www.bahai.org/r/279692597">67</a>). However, for other prayers and devotions the individual may face in any direction.</p>
+            </blockquote>
+            <figcaption class="blockquote-footer">
+              <a href="https://www.bahai.org/r/738176717">Note 7</a> in the <cite title="Source Title">Kitáb-i-Aqdas</cite>
+            </figcaption>
+          </figure>
+          <figure>
+            <blockquote class="blockquote">
+            <p>Bahá’u’lláh ordains His resting-place as the Qiblih after His passing. The Most Holy Tomb is at Bahjí, ‘Akká. ‘Abdu’l‑Bahá describes that Spot as the <i>“luminous Shrine,” “the place around which circumambulate the Concourse on high.”</i></p>
+            <p> In a letter written on his behalf, Shoghi Effendi uses the analogy of the plant turning in the direction of the sun to explain the spiritual significance of turning towards the Qiblih:</p>
+            <p>… just as the plant stretches out to the sunlight—from which it receives life and growth—so we turn our hearts to the Manifestation of God, Bahá’u’lláh, when we pray; … we turn our faces … to where His dust lies on this earth as a symbol of the inner act.</p>
+          </blockquote>
+          <figcaption class="blockquote-footer">
+            <a href="https://www.bahai.org/r/660019058">Note 8</a> in the <cite title="Source Title">Kitáb-i-Aqdas</cite>
+          </figcaption>
+          </figure>
         </div>
       </div>
     </div>
   </section>
 
   <section id="contact">
-    <div class="container">
+    <div class="container py-5">
       <div class="row">
         <div class="col-lg-8 mx-auto">
           <h2>Questions / Suggestions?</h2>
           <form name="contact" role="form" method="post" netlify-honeypot="bot-field" data-netlify="true">
-            <p class="hidden">
+            <p class="visually-hidden">
               <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
             </p>
-            <div class="form-group">
-                <label for="name">
+            <div class="mb-3">
+                <label for="name" class="form-label">
                     Name:</label>
                 <input type="text" class="form-control"
                 id="name" name="name"  required maxlength="50">
             </div>
-            <div class="form-group">
-                <label for="email">
+            <div class="mb-3">
+                <label for="email" class="form-label">
                     Email:</label>
                 <input type="email" class="form-control"
                 id="email" name="email" required maxlength="50">
             </div>
-            <div class="form-group">
-                <label for="message">
+            <div class="mb-3">
+                <label for="message" class="form-label">
                     Message:</label>
                 <textarea class="form-control" type="textarea" name="message"
                 id="message" placeholder="Your Message Here"
@@ -180,9 +230,9 @@
   </section>
 
   <!-- Footer -->
-  <footer class="py-5 background footer">
+  <footer class="py-5 bg-primary footer">
     <div class="container">
-      <p class="m-0 text-center text-white-50">Qiblih.com 2009 - 2022<br>
+      <p class="m-0 text-center text-white-50">Qiblih.com • 2009 - 2023<br>
       <a href="https://media.bahai.org/detail/2281710/">Pathway to the Shrine of Bahá’u’lláh Photo</a> - Copyright © Bahá'í International Community<br>
         This website is an individual initiative. For the official website of the Baha’i Faith, visit <a href="https://bahai.org">bahai.org</a><br>
       <a href="https://github.com/bahaidev/qiblih-website/">Source Code available on GitHub</a></p>
@@ -190,54 +240,8 @@
     <!-- /.container -->
   </footer>
 
-  <!--
-  Bootstrap core JavaScript
-
-  Get path and integrity at:
-  https://getbootstrap.com/docs/
-  -->
-  <script
-    src="../node_modules/jquery/dist/jquery.min.js"
-    data-im-algorithms="sha384"
-    crossorigin="anonymous"></script>
-
-  <script
-    src="../node_modules/popper.js/dist/umd/popper.min.js"
-    data-im-algorithms="sha384"
-    crossorigin="anonymous"></script>
-  <script
-    src="../node_modules/bootstrap/dist/js/bootstrap.min.js"
-    data-im-algorithms="sha384"
-    crossorigin="anonymous"></script>
-
-  <!--
-  Get path and integrity at:
-  -->
-
-  <!-- Load Leaflet from CDN -->
-  <script
-    src="../node_modules/leaflet/dist/leaflet.js"
-    data-im-algorithms="sha512"
-    crossorigin=""></script>
-
-  <!-- Load Leaflet.Geodesic from CDN -->
-  <script
-    src="../node_modules/leaflet.geodesic/dist/leaflet.geodesic.umd.min.js"
-    data-im-algorithms="sha512"
-    crossorigin=""></script>
-
-  <!-- Load Esri Leaflet from CDN -->
-  <script
-    src="../node_modules/esri-leaflet/dist/esri-leaflet.js"
-    data-im-algorithms="sha512"
-    crossorigin=""></script>
-  <script
-    src="../node_modules/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.js"
-    data-im-algorithms="sha512"
-    crossorigin=""></script>
-
   <!-- Custom JavaScript for this theme -->
-  <script type="module" src="js/qiblih.js"></script>
+  <script type="module" src="./js/qiblih.js"></script>
 </body>
 
 </html>
