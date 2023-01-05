@@ -107,6 +107,8 @@ function onLocationError(/* e */) {
   const home = new L.LatLng(42.074481, -87.684267);
   drawLine(home);
   map.setView(home, 16);
+  displayAlert(`<b>We were unable to access geolocation services on your device.</b><br>
+    Please update your location permission settings or simply find your address using search button on the upper left of the map.`);
 }
 
 // Auto detect user location if supported
@@ -151,10 +153,21 @@ window.addEventListener('DOMContentLoaded', event => {
 
 });
 
+// Show alert message above map / compass tabs
+function displayAlert (message) {
+  document.querySelector("#alertMessage").innerHTML = [
+    `<div class="alert alert-warning alert-dismissible" role="alert">`,
+    `   <div>${message}</div>`,
+    '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+    '</div>'
+  ].join('');
+
+};
+
 // Reload map tiles. Need to do this after the map has been hidden
 function reloadMap() {
   map.invalidateSize();
-}
+};
 
 // Compass stuff
 const compassCircle = document.querySelector(".compass-circle");
