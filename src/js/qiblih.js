@@ -108,7 +108,7 @@ function onLocationError(/* e */) {
   drawLine(home);
   map.setView(home, 16);
   displayAlert(`<b>We were unable to access geolocation services on your device.</b><br>
-    Please update your location permission settings or simply find your address using search button on the upper left of the map.`);
+    Please update your location permission settings or simply find your address using the search button on the upper left of the map.`);
 }
 
 // Auto detect user location if supported
