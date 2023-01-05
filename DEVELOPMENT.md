@@ -14,7 +14,7 @@
     You don't need to run this again until you make changes to the
     `image-processing.js` script or change the source header image file.
 1. `npm start` or `npm run open`/`npm run open-dev` to start a
-    [Vite] (https://vitejs.dev/) dev server,
+    [Vite](https://vitejs.dev/) dev server,
     with the latter also auto-opening the page in the browser. You may have
     to refresh the page as the `start` will run afterward.
 
