@@ -2,3 +2,5 @@
 node_modules
 /public
 /src/images/cropped
+.env.local
+.env.*.local

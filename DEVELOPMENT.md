@@ -4,6 +4,9 @@
 1. Be sure you have `npm` installed (it comes with installation of Node.js).
 1. Run `npm install` (or `npm i`) within the `qiblih-website` directory to
     install our dependencies and development dependencies.
+1. Copy `.env.example` to `.env.local` and fill in your development API keys.
+    Vite will load `.env.local` automatically when running the dev server.
+    Production API keys should be set in the Netlify dashboard.
 
 ### Scripts to use during development
 

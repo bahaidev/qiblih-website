@@ -9,11 +9,12 @@ module.exports = {
     es6: true
   },
   parserOptions: {
-    sourceType: 'module'
+    sourceType: 'module',
+    ecmaVersion: 2020
   },
   overrides: [
     {
-      files: ['.eslintrc.js'],
+      files: ['.eslintrc.js', 'vite.config.js'],
       env: {
         node: true
       }

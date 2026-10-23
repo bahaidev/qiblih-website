@@ -16,7 +16,7 @@ import * as Geomag from 'geomag';
 let targetBearing = 0;
 
 const map = L.map('map').setView([50, -40], 3);
-L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png?key=cb1_4scy_1_bd408ee1eb4490ffcd60e840', {
+L.tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png?key=${import.meta.env.VITE_CARTO_API_KEY}`, {
   maxZoom: 19,
   noWrap: true,
   subdomains: 'abcd',
@@ -35,7 +35,7 @@ const searchControl = esriLeafletGeocoder.geosearch({
   providers: [
     esriLeafletGeocoder.arcgisOnlineProvider({
       // API Key to be passed to the ArcGIS Online Geocoding Service
-      apikey: 'AAPK7d386b9e678143fb956e374afae8e0b0gShdJi74zlL90PEq_tlA2qe7ehZJAXflp2hixSIkzdfg_QE0tX5aDzy63265tFb8'
+      apikey: import.meta.env.VITE_ARCGIS_API_KEY
     })
   ],
   useMapBounds: false,
