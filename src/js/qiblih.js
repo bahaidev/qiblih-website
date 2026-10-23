@@ -1,10 +1,8 @@
-/* globals L */
-
 // Import our custom CSS
 import '../scss/main.scss'
 
 // Import all of Bootstrap's JS
-import * as bootstrap from 'bootstrap'
+import 'bootstrap'
 
 // Import all Leaflet related
 import * as L from 'leaflet'
@@ -60,8 +58,8 @@ function drawLine(d) {
   result.clearLayers();
   const bahji = new L.LatLng(32.943529, 35.091834);
   const home = d;
-  const A = L.marker(bahji, { draggable: false }).addTo(result);
-  const B = L.marker(home, { draggable: true }).addTo(result)
+  const A = L.marker(bahji, {draggable: false}).addTo(result);
+  const B = L.marker(home, {draggable: true}).addTo(result)
     .bindPopup('You can reposition this marker. <br> The line points to <b>Bahjí</b>.').openPopup();
 
   const geodesic = L.geodesic([A.getLatLng(), B.getLatLng()], {
@@ -72,7 +70,7 @@ function drawLine(d) {
   }).addTo(result);
 
   const vector = geodesic.geom.geodesic.inverse(B.getLatLng(), A.getLatLng());
-  const { declination } = Geomag.field(B.getLatLng().lat, B.getLatLng().lng);
+  const {declination} = Geomag.field(B.getLatLng().lat, B.getLatLng().lng);
   info.update(geodesic.statistics, magBearing(vector.initialBearing.toFixed(0), declination));
 
   // update the geodesic line when the B marker is dragged
@@ -80,7 +78,7 @@ function drawLine(d) {
   B.on('drag', (e) => {
     geodesic.setLatLngs([A.getLatLng(), e.latlng])
     const vector = geodesic.geom.geodesic.inverse(e.latlng, A.getLatLng());
-    const { declination } = Geomag.field(e.latlng.lat, e.latlng.lng);
+    const {declination} = Geomag.field(e.latlng.lat, e.latlng.lng);
     info.update(geodesic.statistics, magBearing(vector.initialBearing.toFixed(0), declination));
   });
 }
@@ -114,7 +112,7 @@ function onLocationError(/* e */) {
 // Auto detect user location if supported
 map.on('locationfound', onLocationFound);
 map.on('locationerror', onLocationError);
-map.locate({ setView: true, maxZoom: 16 });
+map.locate({setView: true, maxZoom: 16});
 
 const info = L.control();
 
@@ -126,17 +124,17 @@ info.onAdd = function (/* map */) {
 
 info.update = function (stats, bearing) {
   this._div.innerHTML = `<h4>Distance</h4>${stats
-      ? (stats.totalDistance > 10000)
-        ? `${(stats.totalDistance / 1000).toFixed(0)} km`
-        : `${(stats.totalDistance).toFixed(0)} m`
-      : 'invalid'
-    }<br/> <br/> <h4>Magnetic Bearing</h4>${bearing ? `${bearing}°` : 'invalid'}`;
+    ? (stats.totalDistance > 10000)
+      ? `${(stats.totalDistance / 1000).toFixed(0)} km`
+      : `${(stats.totalDistance).toFixed(0)} m`
+    : 'invalid'
+  }<br/> <br/> <h4>Magnetic Bearing</h4>${bearing ? `${bearing}°` : 'invalid'}`;
 };
 info.addTo(map);
 
 
 // on mobile hide menu on click
-window.addEventListener('DOMContentLoaded', event => {
+window.addEventListener('DOMContentLoaded', () => {
   // Collapse responsive navbar when toggler is visible
   const navbarToggler = document.body.querySelector('.navbar-toggler');
   const responsiveNavItems = [].slice.call(
@@ -154,8 +152,8 @@ window.addEventListener('DOMContentLoaded', event => {
 
 // Show alert message above map / compass tabs
 function displayAlert(message) {
-  document.querySelector("#alertMessage").innerHTML = [
-    `<div class="alert alert-warning alert-dismissible" role="alert">`,
+  document.querySelector('#alertMessage').innerHTML = [
+    '<div class="alert alert-warning alert-dismissible" role="alert">',
     `   <div>${message}</div>`,
     '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
     '</div>'
@@ -169,10 +167,10 @@ function reloadMap() {
 };
 
 // Compass stuff
-const compassCircle = document.querySelector(".compass-circle");
-const compassBtn = document.querySelector("#compass-tab");
-const mapBtn = document.querySelector("#map-tab");
-const triangle = document.querySelector(".triangle");
+const compassCircle = document.querySelector('.compass-circle');
+const compassBtn = document.querySelector('#compass-tab');
+const mapBtn = document.querySelector('#map-tab');
+const triangle = document.querySelector('.triangle');
 let magneticBearing;
 const isIOS = (
   navigator.userAgent.match(/(iPod|iPhone|iPad)/) &&
@@ -180,25 +178,25 @@ const isIOS = (
 );
 
 function initCompass() {
-  compassBtn.addEventListener("click", startCompass);
-  mapBtn.addEventListener("click", reloadMap);
+  compassBtn.addEventListener('click', startCompass);
+  mapBtn.addEventListener('click', reloadMap);
 }
 
 function startCompass() {
   if (isIOS) {
-    console.log("is IOS");
+    console.log('is IOS');
     DeviceOrientationEvent.requestPermission()
       .then((response) => {
-        if (response === "granted") {
-          window.addEventListener("deviceorientation", compHandler, true);
+        if (response === 'granted') {
+          window.addEventListener('deviceorientation', compHandler, true);
         } else {
-          alert("The requested permission must be allowed for the compass to function.");
+          alert('The requested permission must be allowed for the compass to function.');
         }
       })
-      .catch(() => alert("DeviceOrientation not supported"));
+      .catch(() => alert('DeviceOrientation not supported'));
   } else {
-    window.addEventListener("deviceorientationabsolute", compHandler, true);
-    window.addEventListener('compassneedscalibration', function (event) {
+    window.addEventListener('deviceorientationabsolute', compHandler, true);
+    window.addEventListener('compassneedscalibration', function () {
       alert('Compass needs calibrating! Wave your device in a figure-eight motion');
     });
   }
@@ -206,7 +204,7 @@ function startCompass() {
 
 function compHandler(e) {
   magneticBearing = Math.round(e.webkitCompassHeading || Math.abs(e.alpha - 360));
-  let trueBearing = (360 + targetBearing - magneticBearing) % 360;
+  const trueBearing = (360 + targetBearing - magneticBearing) % 360;
   compassCircle.style.transform = `translate(-50%, -50%) rotate(${trueBearing}deg)`;
 
   if (trueBearing < 5 || trueBearing > 355) {
@@ -223,7 +221,7 @@ function compHandler(e) {
     }
   }
 
-  document.querySelector("#compassDetails").innerHTML = `<p>Current Magnetic Bearing: ${magneticBearing}° ${accurangeString} <br> Intended Bearing to Bahjí: ${targetBearing}°</p>`;
+  document.querySelector('#compassDetails').innerHTML = `<p>Current Magnetic Bearing: ${magneticBearing}° ${accurangeString} <br> Intended Bearing to Bahjí: ${targetBearing}°</p>`;
 }
 
 initCompass();

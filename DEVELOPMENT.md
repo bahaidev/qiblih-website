@@ -11,8 +11,8 @@
 ### Scripts to use during development
 
 1. `npm run eslint` - Will check the code for common errors. The configuration
-    is within `.eslintrc.js` (and `.eslintignore` indicates the files that will
-    not be linted).
+    is within `eslint.config.mjs` (its `ignores` list indicates the files that
+    will not be linted).
 1. `npm run images` - Needs to be run to generate the responsive header images.
     You don't need to run this again until you make changes to the
     `image-processing.js` script or change the source header image file.

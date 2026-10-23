@@ -1,6 +1,8 @@
+import path from 'node:path'
+import {fileURLToPath} from 'node:url'
 import legacy from '@vitejs/plugin-legacy'
 
-const path = require('path')
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default {
   root: path.resolve(__dirname, 'src'),
@@ -8,6 +10,15 @@ export default {
   resolve: {
     alias: {
       '~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap'),
+    }
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // Remaining deprecations originate inside Bootstrap 5.3's own SCSS
+        // (node_modules); silence those so our own warnings stay visible.
+        quietDeps: true
+      }
     }
   },
   server: {
