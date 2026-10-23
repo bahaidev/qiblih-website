@@ -16,7 +16,7 @@ import * as Geomag from 'geomag';
 let targetBearing = 0;
 
 const map = L.map('map').setView([50, -40], 3);
-L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png?key=cb1_4scy_1_bd408ee1eb4490ffcd60e840', {
   maxZoom: 19,
   noWrap: true,
   subdomains: 'abcd',
@@ -38,14 +38,14 @@ const searchControl = esriLeafletGeocoder.geosearch({
       apikey: 'AAPK7d386b9e678143fb956e374afae8e0b0gShdJi74zlL90PEq_tlA2qe7ehZJAXflp2hixSIkzdfg_QE0tX5aDzy63265tFb8'
     })
   ],
-  useMapBounds:false,
+  useMapBounds: false,
   allowMultipleResults: false,
   placeholder: 'Search for your address',
   expanded: false,
   position: 'topleft'
 }).addTo(map);
 
-searchControl.on('results', function(data){
+searchControl.on('results', function (data) {
   for (let i = data.results.length - 1; i >= 0; i--) {
     const home = data.results[i].latlng;
     drawLine(home);
@@ -60,8 +60,8 @@ function drawLine(d) {
   result.clearLayers();
   const bahji = new L.LatLng(32.943529, 35.091834);
   const home = d;
-  const A = L.marker(bahji, {draggable: false}).addTo(result);
-  const B = L.marker(home, {draggable: true}).addTo(result)
+  const A = L.marker(bahji, { draggable: false }).addTo(result);
+  const B = L.marker(home, { draggable: true }).addTo(result)
     .bindPopup('You can reposition this marker. <br> The line points to <b>Bahjí</b>.').openPopup();
 
   const geodesic = L.geodesic([A.getLatLng(), B.getLatLng()], {
@@ -72,7 +72,7 @@ function drawLine(d) {
   }).addTo(result);
 
   const vector = geodesic.geom.geodesic.inverse(B.getLatLng(), A.getLatLng());
-  const {declination} = Geomag.field(B.getLatLng().lat, B.getLatLng().lng);
+  const { declination } = Geomag.field(B.getLatLng().lat, B.getLatLng().lng);
   info.update(geodesic.statistics, magBearing(vector.initialBearing.toFixed(0), declination));
 
   // update the geodesic line when the B marker is dragged
@@ -80,7 +80,7 @@ function drawLine(d) {
   B.on('drag', (e) => {
     geodesic.setLatLngs([A.getLatLng(), e.latlng])
     const vector = geodesic.geom.geodesic.inverse(e.latlng, A.getLatLng());
-    const {declination} = Geomag.field(e.latlng.lat, e.latlng.lng);
+    const { declination } = Geomag.field(e.latlng.lat, e.latlng.lng);
     info.update(geodesic.statistics, magBearing(vector.initialBearing.toFixed(0), declination));
   });
 }
@@ -114,7 +114,7 @@ function onLocationError(/* e */) {
 // Auto detect user location if supported
 map.on('locationfound', onLocationFound);
 map.on('locationerror', onLocationError);
-map.locate({setView: true, maxZoom: 16});
+map.locate({ setView: true, maxZoom: 16 });
 
 const info = L.control();
 
@@ -125,36 +125,35 @@ info.onAdd = function (/* map */) {
 };
 
 info.update = function (stats, bearing) {
-  this._div.innerHTML = `<h4>Distance</h4>${
-    stats
+  this._div.innerHTML = `<h4>Distance</h4>${stats
       ? (stats.totalDistance > 10000)
         ? `${(stats.totalDistance / 1000).toFixed(0)} km`
         : `${(stats.totalDistance).toFixed(0)} m`
       : 'invalid'
-  }<br/> <br/> <h4>Magnetic Bearing</h4>${bearing ? `${bearing}°` : 'invalid'}`;
+    }<br/> <br/> <h4>Magnetic Bearing</h4>${bearing ? `${bearing}°` : 'invalid'}`;
 };
 info.addTo(map);
 
 
 // on mobile hide menu on click
 window.addEventListener('DOMContentLoaded', event => {
-    // Collapse responsive navbar when toggler is visible
-    const navbarToggler = document.body.querySelector('.navbar-toggler');
-    const responsiveNavItems = [].slice.call(
-        document.querySelectorAll('#navbarResponsive .nav-link')
-    );
-    responsiveNavItems.map(function (responsiveNavItem) {
-        responsiveNavItem.addEventListener('click', () => {
-            if (window.getComputedStyle(navbarToggler).display !== 'none') {
-                navbarToggler.click();
-            }
-        });
+  // Collapse responsive navbar when toggler is visible
+  const navbarToggler = document.body.querySelector('.navbar-toggler');
+  const responsiveNavItems = [].slice.call(
+    document.querySelectorAll('#navbarResponsive .nav-link')
+  );
+  responsiveNavItems.map(function (responsiveNavItem) {
+    responsiveNavItem.addEventListener('click', () => {
+      if (window.getComputedStyle(navbarToggler).display !== 'none') {
+        navbarToggler.click();
+      }
     });
+  });
 
 });
 
 // Show alert message above map / compass tabs
-function displayAlert (message) {
+function displayAlert(message) {
   document.querySelector("#alertMessage").innerHTML = [
     `<div class="alert alert-warning alert-dismissible" role="alert">`,
     `   <div>${message}</div>`,
@@ -199,8 +198,8 @@ function startCompass() {
       .catch(() => alert("DeviceOrientation not supported"));
   } else {
     window.addEventListener("deviceorientationabsolute", compHandler, true);
-    window.addEventListener('compassneedscalibration', function(event) {
-       alert('Compass needs calibrating! Wave your device in a figure-eight motion');
+    window.addEventListener('compassneedscalibration', function (event) {
+      alert('Compass needs calibrating! Wave your device in a figure-eight motion');
     });
   }
 }
